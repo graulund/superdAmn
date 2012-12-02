@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0RC2rev7.
-// @author         Andy Graulund <electricnet@gmail.com>
-// @version        1.0RC2rev7
+// @description    Next generation dAmn awesomeness. Version 1.0.
+// @author         Andy Graulund <andy@graulund.com>
+// @version        1.0
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // ==/UserScript==
@@ -26,14 +26,17 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 // SUPERDAMN
 // Made by Andy Graulund / electricnet
 // <electricnet.deviantart.com>
-// <elec.me>
-// <electricnet@gmail.com>
+// <pongsocket.com>
+// <andy@graulund.com>
+
+// On GitHub at github.com/graulund/superdAmn -- contribute your ideas!
 
 // With significant portions made by or inspired by products made by:
 // siebenzehn, Zikes, zachriel, exsecror, realillusions, electricjonny,
-// Kiwanji, Plizzo
+// sumopiggy, miksago, Kiwanji, Plizzo, KnightAR
+// Thank you guys!
 
-// Copyright (c) 2009 - 2011 Andy Graulund / electricnet
+// Copyright (c) 2009 - 2012 Andy Graulund / electricnet
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -55,8 +58,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0RC2rev7",
-	vd: 1354400996,
+	v:  "1.0",
+	vd: 1354420800,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -1173,13 +1176,12 @@ var superdAmn = window.superdAmn = {
 			dAmnChatMembers.prototype.AddMember_SD = dAmnChatMembers.prototype.AddMember
 			dAmnChatMembers.prototype.AddMember    = function(name, info, updatedisplay, count){
 				this.AddMember_SD(name, info, updatedisplay, count)
-				this.members[name].showinfo    = function(){
-					// I'd append stuff to the original function but it made everything superlaggy, so I'm overwriting instead -- sorry!
+				this.members[name].showinfo    = function(){					// I'd append stuff to the original function but it made everything superlaggy, so I'm overwriting instead -- sorry!
 					var ns      = dAmnChatTab_active
-					var offset  = document.getElementById("dAmn-Chatbox").offsetTop + dAmnChats[ns].room_el.offsetTop + dAmnChats[ns].lo_cr_el.offsetTop
 					var info_el = dAmnChats[ns].info_el
 					dAmnChat_enterInfoCtr(info_el)
 					var bar     = this.el.parentNode.parentNode
+					var offset  = jQuery(bar).offset().top
 					var crow    = bar.parentNode
 					dAmn_DeleteChildren(info_el)
 					dAmn_DeleteSelf(info_el)
