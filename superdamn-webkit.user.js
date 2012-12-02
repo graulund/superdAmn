@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0RC2rev6.
+// @description    Next generation dAmn awesomeness. Version 1.0RC2rev7.
 // @author         Andy Graulund <electricnet@gmail.com>
-// @version        1.0RC2rev6
+// @version        1.0RC2rev7
 // @include        http://chat.deviantart.com/chat/*
+// @include        http://chat.deviantart.lan/chat/*
 // ==/UserScript==
 
-// LAST UPDATED: 2012-01-30
+// LAST UPDATED: 2012-11-22
 
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
@@ -54,8 +55,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0RC2rev6",
-	vd: 1327924800,
+	v:  "1.0RC2rev7",
+	vd: 1354400996,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -608,10 +609,10 @@ var superdAmn = window.superdAmn = {
 		},
 		// ADDMAKETEXTHANDLE: Adds changes to dAmn's makeText function: Ignores, pchatting, timestamps
 		addmaketexthandle: function(){
-			dAmnChanChat.prototype.makeText = function(style, from, text, hilite){ // Function-mingling. I feel dirty.
+			dAmnChanChat.prototype.makeText = function(style, from, input_text, hilite){ // Function-mingling. I feel dirty.
 				var SD     = superdAmn, evr
 				var fromun = ""
-				var o, i, ts, f, ff, t, tt
+				
 				var checkStyle = function(style, str){
 					return style.substr(0, str.length) == str
 				}
@@ -622,7 +623,7 @@ var superdAmn = window.superdAmn = {
 					(
 						checkStyle(style, "disconnect") ||
 						checkStyle(style, "join") ||
-						(checkStyle(style, "part") && text == "[quit]")
+						(checkStyle(style, "part") && input_text == "[quit]")
 					)
 				){
 					hilite = -1
@@ -647,67 +648,68 @@ var superdAmn = window.superdAmn = {
 				// Pchattin' should always highlight you
 				if(this.cr.SD && this.cr.SD.other && fromun.toLowerCase() == this.cr.SD.other.toLowerCase()){ hilite = 2 }
 				
-				o = dAmn_MakeDiv("msg " + style)
-				i = dAmn_AddDiv(o, "inner")
-				o.style.display = "none"
-				this.chat_el.appendChild(o)
-				
-				// Timestamps
-				if(SD.P.timestamps){ ts = dAmn_AddSpan(i, "ts", SD.format.timestamp() + " ") }
+                this.FormatMsg(input_text, bind(this, function (text) {
+                    var o, i, ts, f, ff, t, tt
+                    
+                    o = dAmn_MakeDiv("msg " + style)
+                    i = dAmn_AddDiv(o, "inner")
+                    o.style.display = "none"
+                    this.chat_el.appendChild(o)
+                    
+                    // Timestamps
+                    if(SD.P.timestamps){ ts = dAmn_AddSpan(i, "ts", SD.format.timestamp() + " ") }
 
-				var bkColor
-				if(IE){ bkColor = GetBkColor(i) }
-
-				f  = dAmn_AddSpan(i, "from")
-				ff = dAmn_AddSpan(f, ((fromun && fromun != from) ? "ffc" : null), from + " ")
-				if(fromun){ ff.onclick = function(){ superdAmn.dAmn.inputAddUsername(fromun) } } // Username clicks
-				
-				if(text){
-					t  = dAmn_AddSpan(i, "text")
-					tt = dAmn_AddSpan(t, null, this.FormatMsg(text, bkColor))
-					if("wrapEl" in this){ this.wrapEl(o) }
-					SD.dAmn.applyrecvextras(tt) // Where the magic happens
-				}
-				
-				// Allowing people to extend the functionality
-				evr = SD.extend.trigger("maketext", [o, i, ts, f, t, tt])
-				if((typeof evr == "boolean" && evr !== false) || (typeof evr == "object" && evr[0] !== false)){ // err detection
-					if(typeof evr == "object" && evr.length == 6){
-						o  = evr[0] // Change the HTML objects to the perhaps changed values
-						i  = evr[1]
-						ts = evr[2]
-						f  = evr[3]
-						t  = evr[4]
-						tt = evr[5]
-					}
-					
-					// Unread counters
-					if(hilite >= 2){
-						if(!SD.viewing){
-							SD.unread.count++
-							if(fromun && fromun != from && fromun != SD.u){
-								SD.unread.lastuser = fromun
-							}
-							SD.dAmn.updatetitle()
-						}
-						if(this.cr.ns != dAmnChatTab_active){
-							if(!this.cr.SD){ this.cr.SD = {} }
-							if(!this.cr.SD.unread || typeof this.cr.SD.unread != "number"){
-								this.cr.SD.unread = 1
-							} else {
-								this.cr.SD.unread++
-							}
-						}
-					}
-					
-					// Adding message to chat
-					this.addDiv(o, true, hilite)
-					
-					// Neutralize "display" property
-					if(fromun && fromun.indexOf(" ") < 0){
-						o.setAttribute("style", (o.getAttribute("style") || "").replace(/display\s*:\s*[a-z-]+\s*;?/, ""))
-					}
-				}
+                    f  = dAmn_AddSpan(i, "from")
+                    ff = dAmn_AddSpan(f, ((fromun && fromun != from) ? "ffc" : null), from + " ")
+                    if(fromun){ ff.onclick = function(){ superdAmn.dAmn.inputAddUsername(fromun) } } // Username clicks
+                    
+                    if(text){
+                        t  = dAmn_AddSpan(i, "text")
+                        tt = dAmn_AddSpan(t, null, text)
+                        if("wrapEl" in this){ this.wrapEl(o) }
+                        SD.dAmn.applyrecvextras(tt) // Where the magic happens
+                    }
+                    
+                    // Allowing people to extend the functionality
+                    evr = SD.extend.trigger("maketext", [o, i, ts, f, t, tt])
+                    if((typeof evr == "boolean" && evr !== false) || (typeof evr == "object" && evr[0] !== false)){ // err detection
+                        if(typeof evr == "object" && evr.length == 6){
+                            o  = evr[0] // Change the HTML objects to the perhaps changed values
+                            i  = evr[1]
+                            ts = evr[2]
+                            f  = evr[3]
+                            t  = evr[4]
+                            tt = evr[5]
+                        }
+                        
+                        // Unread counters
+                        if(hilite >= 2){
+                            if(!SD.viewing){
+                                SD.unread.count++
+                                if(fromun && fromun != from && fromun != SD.u){
+                                    SD.unread.lastuser = fromun
+                                }
+                                SD.dAmn.updatetitle()
+                            }
+                            if(this.cr.ns != dAmnChatTab_active){
+                                if(!this.cr.SD){ this.cr.SD = {} }
+                                if(!this.cr.SD.unread || typeof this.cr.SD.unread != "number"){
+                                    this.cr.SD.unread = 1
+                                } else {
+                                    this.cr.SD.unread++
+                                }
+                            }
+                        }
+                        
+                        // Adding message to chat
+                        this.addDiv(o, true, hilite)
+                        
+                        // Neutralize "display" property
+                        if(fromun && fromun.indexOf(" ") < 0){
+                            o.setAttribute("style", (o.getAttribute("style") || "").replace(/display\s*:\s*[a-z-]+\s*;?/, ""))
+                        }
+                    }
+                }));
 			}
 		},
 		// ADDMSGHANDLE: Adds changes to dAmn's onMsg function: telling people that you're away
@@ -1279,28 +1281,25 @@ var superdAmn = window.superdAmn = {
 		// ADDFORMATEXTRAS: Modifies dAmn's FormatMsg function to better support certain native emotes, thumbs, devlinks
 		addformatextras: function(){
 			dAmnChanChat.prototype.FormatMsg_SD = dAmnChanChat.prototype.FormatMsg;
-			dAmnChanChat.prototype.FormatMsg = function(msg, bkcolor){
+			dAmnChanChat.prototype.FormatMsg = function(msg, cb){
 				// Requires jQuery
-				
-				// Transforming &thumb tablumps into &thmb and thus "bending" them
-				// around the normal formatting function
-				msg = msg.replace(
-					/&thumb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g, 
-					"&thmb\t$1\t$2\t$3\t$4\t$5\t$6\t$7\t"
-				)
+                
+                var $deferred = $.Deferred();
+                
+                $deferred.always(cb);
+                
+                if (!msg) {
+                    //Nothing to do. Get Out!
+                    return $deferred.resolveWith(this, ['']);
+                }
+                
 				// Uppercase letter emotes fixin'
 				msg = msg.replace(
 					/&emote\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\tletters\/([A-Z])\.gif\t/g,
 					function(){ return "&emote\t" + arguments[1] + "\t" + arguments[2] + "\t" + arguments[3] + "\t" + arguments[4] + "\tletters/" + arguments[5].toLowerCase() + ".gif\t" }
 				)
-				// Let's roll the standard formatting now!
-				msg = dAmnChanChat.prototype.FormatMsg_SD(msg, bkcolor)
-				// Additional fix for usernames without symbols
-				msg = msg.replace(/&dev\t([^\t])?\t([^\t]+)\t/g, '$1<a target="_blank" href="http://$2.deviantart.com/">$2</a>')
-				
-				// Handling thumbs
-				if(!IE){ bkcolor = "alpha" }
-				var re = /&thmb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g
+                
+                var re = /&thumb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g;
 				// A = m, J = re, T = res
 				var m, res
 				while((m = re.exec(msg)) != null){
@@ -1309,131 +1308,28 @@ var superdAmn = window.superdAmn = {
 					var who     = (m[3] == "you") ? (window.deviantART && deviantART.deviant && deviantART.deviant.symbol ? deviantART.deviant.symbol : "") + dAmn_Client_Username : m[3]
 					var user    = who.replace(/^[^a-zA-Z0-9\-_]/, "")
 					var tooltip = title + " by " + who + ", " + m[4] // S
-					var wh      = m[4].split("x") // D
-					var server  = m[5] // K
-					var file    = (m[3] == "you") ? superdAmn.strrev(m[6]) : m[6] // Q
-					var flags   = m[7].split(":") // C
-					var w       = wh[0] // F
-					var h       = wh[1] // N
-					var thumb_w = 100 // L
-					var thumb_h = 100 // R, M (below)
-					var url     = "http://" + user + ".deviantart.com/art/" + deviation_url_title(title) + "-" + id
-					var tid     = "", tclass = "", img = ""
-					var seg     = []
-					if(w / h > thumb_w / thumb_h){
-						h = parseInt((h * thumb_h) / w);
-						w = thumb_w
-					} else {
-						w = parseInt((w * thumb_w) / h);
-						h = thumb_h
-					}
-					if(w > wh[0] || h > wh[1]){
-						w = wh[0]
-						h = wh[1]
-					}
-					var shadow = false // E
-					
-					if (flags[1] != "0") {
+                    var wh      = m[4].split("x") // D
+                    var url     = "http://" + user + ".deviantart.com/art/" + deviation_url_title(title) + "-" + id
+                    var flags   = m[7].split(":") // C
+                    var file    = (m[3] == "you") ? superdAmn.strrev(m[6]) : m[6] // Q
+                    
+					if (flags[1] != '0') {
 						res = '<a class="superdamn-devlink" target="_blank" href="' + url + '" title="' + tooltip + '"><strong>Mature Deviation:</strong> <em>' + title + "</em></a>"
-						//res = '<a target="_blank" href="' + url + '" title="' + tooltip + '">[mature deviation:' + title + "]</a>"
-					} else {
-						if(flags[2] != "0"){
-							res = '<a class="superdamn-devlink" target="_blank" href="' + url + '" title="' + tooltip + '"><strong>Deviation:</strong> <em>' + title + "</em></a>"
-						} else {
-							if(file.match(/\.gif$/i) || file.match(/\.png$/i)){
-								isgif   = !!file.match(/\.gif$/i)
-								server  = (Math.abs(crc32(file)) % 3) + 1 // I don't even know why we do this when we get it supplied, but dAmn original code says so, so we do it
-								if((wh[0] > 150 || wh[1] > 150) && !isgif){
-									file   = file.replace(/:/, "/150/")
-									img    = "th0" + server + ".deviantart.net/" + file
-									shadow = true
-								} else {
-									file   = file.replace(/:/, "/")
-									img    = "fc0" + server + ".deviantart.net/" + file // H
-								}
-								if((wh[0] > 150 || wh[1] > 150) && isgif){
-									res = '<a class="superdamn-devlink" target="_blank" href="' + url + '" title="' + tooltip + '"><strong>Deviation:</strong> <em>' + title + "</em></a>"
-								} else {
-									seg     = file.split("/") // P
-									if(seg && seg.length > 1){
-										seg = seg[0].split(".");
-										if(seg && seg.length > 2){
-											img = file
-										}
-									}
-									res = '<a target="_blank" href="' + url + '"><img class="thumb" title="' + tooltip + '" width="' + w + '" height="' + h + '" alt=":thumb' + id + ':" src="http://' + img + '"/></a>'
-								}
-							} else {
-								server = (Math.abs(crc32(file)) % 5) + 1
-								if(wh[0] > 150 || wh[1] > 150){
-									file   = file.replace(/:/, "/150/")
-									img    = "th0" + server + ".deviantart.net/" + file
-								} else {
-									file   = file.replace(/:/, "/")
-									img    = "fc0" + server + ".deviantart.net/" + file
-								}
-								seg     = file.split("/") // P
-								if(seg && seg.length > 1){
-									seg = seg[0].split(".");
-									if(seg && seg.length > 2){
-										img = file
-									}
-								}
-								// Literature tiems!
-								if(img == "images.deviantart.com/shared/poetry.jpg"){
-									img     = "th00.deviantart.net/images/150/shared/poetry.jpg"
-									tooltip = title + " by " + who // Resolution is irrelevant
-									tid     = "sdltt-" + id; tclass = "sdltt"
-									jQuery.get('/global/difi/?c[]="Resources"%2C"htmlFromQuery"%2C["meta%3Aall boost%3Apopular \\"' + superdAmn.dAmn.queryDevTitle(m[2]) + '\\"%2Bby%3A' + (user == "me" ? dAmn_Client_Username : user) + '"%2C0%2C30%2C"thumb150"%2C"category%3A1%2Ctitle%3A1%2Cartist%3A0%2Crelated%3A1%2Cdescription%3A1%2Csitback%3A1%2Csuggest%3A1%2Ccatpath%3A1"]&t=json&ts=' + id, function(data){
-										var scrolls = superdAmn.dAmn.canScrolls()
-										var id      = this.url.split("ts=")[1]
-										var d       = JSON.parse(data)
-										if(d.DiFi.status.toUpperCase() == "SUCCESS" && d.DiFi.response.calls[0].response.status.toUpperCase() == "SUCCESS"){
-											var devs = d.DiFi.response.calls[0].response.content.resources
-											if(devs.length > 0){
-												Array.prototype.forEach.call(devs, function(dev){
-													var did   = dev[1]
-													var dhtml = dev[2]
-													if(parseInt(did) == parseInt(id) && dhtml.match(/class="([^"]+ )?lit( [^"]+)?"/)){
-														var html = dhtml.replace(/<\/?div[^>]*>/g, "").replace(/\r?\n */, "") // Stripping divs and removing line breaks
-														var tt   = html.match(/title="([^"]+) by ([^"]+)"/)
-														html     = html.split("<!-- ^TTT -->")[0] + "</span>" // Stripping away the TTT
-														// Making "inline" and adding shadow
-														html     = html.replace(/class="tt-w"/, "class=\"shadow-holder\"")
-														html     = html.replace(/class="shadow"/, 'class="shadow" style="background-image:url(http://sh.deviantart.net/shadow/alpha-000000/5.1-0.6/150/125/null.png);"')
-														Array.prototype.forEach.call($x("//span[@id='sdltt-" + id + "']"), function(el){ // Via XPATH to make sure we get all even though ID's are supposed to be unique
-															el.innerHTML = html
-															el.id        = "sdlit-" + id // Adding the ID should it be needed
-															if(tt && tt.length >= 3){
-																el.title = tt[1] + " by " + tt[2]
-															}
-														})
-													}
-												})
-											} else {
-												Array.prototype.forEach.call($x("//span[@id='sdltt-" + id + "']"), function(el){
-													superdAmn.rc(el, "sdltt") // Back to normal size if it fails
-												})
-											}
-										} else {
-											Array.prototype.forEach.call($x("//span[@id='sdltt-" + id + "']"), function(el){
-												superdAmn.rc(el, "sdltt")
-											})
-										}
-										superdAmn.dAmn.doScrolls(scrolls)
-									})
-								}
-								res    = '<a target="_blank" href="' + url + '"><img class="thumb" title="' + tooltip + '" width="' + w + '" height="' + h + '" alt=":thumb' + id + ':" src="http://' + img + '"/></a>'
-								if(flags[0] == "0"){ shadow = true }
-							}
-						}
-					}
-					if(shadow){
-						res = (tid ? '<span id="' + tid + '"' + (tclass ? " class=\"" + tclass + "\"": "") + '>' : "") + '<span class="shadow-holder"><span class="shadow" style="background-image:url(http://sh.deviantart.net/shadow/' + bkcolor + "-000000/5.1-0.6/" + w + "/" + h + '/null.png);">' + res + "</span></span>" + (tid ? "</span>" : "")
-					}
-					msg = msg.substr(0, m.index) + res + msg.substr(re.lastIndex)
-				}
-				return msg
+                        msg = msg.substr(0, m.index) + res + msg.substr(re.lastIndex)
+					} else if (flags[2] != '0') {
+                        res = '<a class="superdamn-devlink" target="_blank" href="' + url + '" title="' + tooltip + '"><strong>Deviation:</strong> <em>' + title + "</em></a>"
+                        msg = msg.substr(0, m.index) + res + msg.substr(re.lastIndex)
+                    } else if(file.match(/\.gif$/i) && (wh[0] > 150 || wh[1] > 150)){
+                        res = '<a class="superdamn-devlink" target="_blank" href="' + url + '" title="' + tooltip + '"><strong>Deviation:</strong> <em>' + title + "</em></a>"
+                        msg = msg.substr(0, m.index) + res + msg.substr(re.lastIndex)
+                    }
+                }
+                
+				// Let's roll the standard formatting now!
+				dAmnChanChat.prototype.FormatMsg_SD(msg, bind(this, function (msg) {
+                    $deferred.resolveWith(this, [msg]);
+                }));
+				return $deferred;
 			}
 		},
 		// APPLYMSGEXTRAS: Adds emotes and FAQs to the strings supplied
