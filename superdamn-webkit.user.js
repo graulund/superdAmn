@@ -161,7 +161,7 @@ var superdAmn = window.superdAmn = {
 	viewing: true,
 	debug:   false,
 	v7:      true,
-	nac:     ["chat:devart", "chat:devious", "chat:fella", "chat:help", "chat:mnadmin", "chat:idlerpg", "chat:irpg", "chat:trivia", "chat:photographers", "chat:daunderworldrpg", "debug:conn"], // noAwayChats
+	nac:     ["chat:devart", "chat:devious", "chat:fella", "chat:help", "chat:mnadmin", "chat:idlerpg", "chat:irpg", "chat:trivia", "chat:photographers", "chat:daunderworldrpg", "chat:damnidlers", "chat:datashare", "chat:dsgateway", "debug:conn"], // noAwayChats
 	pe:      {}, // Public custom emotes
 	
 	// "Structured" public and individual emotes
