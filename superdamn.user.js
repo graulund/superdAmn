@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0.
+// @description    Next generation dAmn awesomeness. Version 1.1.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0
+// @version        1.0.1
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // ==/UserScript==
 
-// LAST UPDATED: 2012-12-01
+// LAST UPDATED: 2013-06-04
 
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
@@ -36,7 +36,7 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 // sumopiggy, miksago, Kiwanji, Plizzo, KnightAR
 // Thank you guys!
 
-// Copyright (c) 2009 - 2012 Andy Graulund / electricnet
+// Copyright (c) 2009 - 2013 Andy Graulund / electricnet
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -58,8 +58,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0",
-	vd: 1354420800,
+	v:  "1.0.1",
+	vd: 1370384014,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -161,7 +161,7 @@ var superdAmn = window.superdAmn = {
 	viewing: true,
 	debug:   false,
 	v7:      true,
-	nac:     ["chat:devart", "chat:devious", "chat:fella", "chat:help", "chat:mnadmin", "chat:idlerpg", "chat:irpg", "chat:trivia", "chat:photographers", "chat:daunderworldrpg", "debug:conn"], // noAwayChats
+	nac:     ["chat:devart", "chat:devious", "chat:fella", "chat:help", "chat:mnadmin", "chat:idlerpg", "chat:irpg", "chat:trivia", "chat:photographers", "chat:daunderworldrpg", "chat:damnidlers", "chat:datashare", "chat:dsgateway", "debug:conn"], // noAwayChats
 	pe:      {}, // Public custom emotes
 	
 	// "Structured" public and individual emotes
@@ -719,13 +719,6 @@ var superdAmn = window.superdAmn = {
 		addmsghandle: function(){
 			MiddleMan.Event.bind("dAmnChat_recv", "msg", "superdAmn_recv_msg", function(pkt){
 				var SD   = superdAmn
-				// Remove highlighting from your thumbs if preferred
-				if(SD.P.nothumbshighlight){
-					pkt.body = pkt.body.replace(
-						new RegExp("&thumb\\t([^\\t]+)\\t([^\\t]+)\\t." + RegExp.escape(dAmn_Client_Username) + "\\t([^\\t]+)\\t([^\\t]+)\\t([^\\t]+)\\t([^\\t]+)\\t", "g"),
-						function(){ return "&thumb\t" + arguments[1] + "\t" + superdAmn.strrev(arguments[2]) + "\tyou\t" + arguments[3] + "\t" + arguments[4] + "\t" + superdAmn.strrev(arguments[5]) + "\t" + arguments[6] + "\t" }
-					)
-				}
 				var recv = dAmn_ParsePacket(pkt.body)
 				var body = MiddleMan.parseMsg(recv.body)
 				var lcfrom = recv.args.from.toLowerCase()
@@ -1328,18 +1321,16 @@ var superdAmn = window.superdAmn = {
 					function(){ return "&emote\t" + arguments[1] + "\t" + arguments[2] + "\t" + arguments[3] + "\t" + arguments[4] + "\tletters/" + arguments[5].toLowerCase() + ".gif\t" }
 				)
                 
-                var re = /&thumb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g;
+                var re = /&thumb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g;
 				// A = m, J = re, T = res
 				var m, res
 				while((m = re.exec(msg)) != null){
 					var id      = m[1] // I
-					var title   = (m[3] == "you") ? superdAmn.strrev(m[2]) : m[2]
-					var who     = (m[3] == "you") ? (window.deviantART && deviantART.deviant && deviantART.deviant.symbol ? deviantART.deviant.symbol : "") + dAmn_Client_Username : m[3]
-					var user    = who.replace(/^[^a-zA-Z0-9\-_]/, "")
-					var tooltip = title + " by " + who + ", " + m[4] // S
-                    var wh      = m[4].split("x") // D
-                    var url     = "http://" + user + ".deviantart.com/art/" + deviation_url_title(title) + "-" + id
-                    var flags   = m[7].split(":") // C
+					var title   = (m[2] == "you") ? superdAmn.strrev(m[2]) : m[2]
+					var tooltip = title + ", " + m[3] // S
+                    var wh      = m[3].split("x") // D
+                    var url     = "http://www.deviantart.com/art/" + deviation_url_title(title) + "-" + id
+                    var flags   = m[6].split(":") // C
                     var file    = (m[3] == "you") ? superdAmn.strrev(m[6]) : m[6] // Q
                     
 					if (flags[1] != '0') {
@@ -3235,7 +3226,7 @@ if(!document.getElementById("MiddleMan")){
 		"popup2 popup2-click-menu popup2_MM";a=document.createElement("div");a.className="pager2 pager-dark";if("object"==typeof c)for(var f in c){var g=document.createElement("a");g.innerHTML=c[f][0];g.className="f";g.onclick=c[f][1];a.appendChild(g)}else a.innerHTML=c;e.appendChild(a);if(b){b.appendChild(e);b.onclick=""}return e},setInputText:function(a,b){a=d.getChannelNs(a);dAmnChats[a].channels.main.input.chatinput_el.value=b}},parseMsg:function(a){a=a.replace(/&b\t/g,"<b>");a=a.replace(/&\/b\t/g,"</b>");
 		a=a.replace(/&i\t/g,"<i>");a=a.replace(/&\/i\t/g,"</i>");a=a.replace(/&u\t/g,"<u>");a=a.replace(/&\/u\t/g,"</u>");a=a.replace(/&s\t/g,"<s>");a=a.replace(/&\/s\t/g,"</s>");a=a.replace(/&p\t/g,"<p>");a=a.replace(/&\/p\t/g,"</p>");a=a.replace(/&br\t/g,"<br/>");a=a.replace(/&li\t/g,"<li>");a=a.replace(/&\/li\t/g,"</li>");a=a.replace(/&ul\t/g,"<ul>");a=a.replace(/&\/ul\t/g,"</ul>");a=a.replace(/&ol\t/g,"<ol>");a=a.replace(/&\/ol\t/g,"</ol>");a=a.replace(/&sub\t/g,"<sub>");a=a.replace(/&\/sub\t/g,"</sub>");
 		a=a.replace(/&sup\t/g,"<sup>");a=a.replace(/&\/sup\t/g,"</sup>");a=a.replace(/&code\t/g,"<code>");a=a.replace(/&\/code\t/g,"</code>");a=a.replace(/&bcode\t/g,"<bcode>");a=a.replace(/&\/bcode\t/g,"</bcode>");a=a.replace(/&dev\t([^\t])\t([^\t]+)\t/g,":dev$2:");a=a.replace(/&link\t([^\t]+)\t&/g,"$1");a=a.replace(/&link\t([^\t]+)\t([^\t]+)\t&\t/g,"$1 ($2)");a=a.replace(/&abbr\t([^\t]+)\t/g,'<abbr title="$1">');a=a.replace(/&\/abbr\t/g,"</abbr>");a=a.replace(/&acro\t([^\t]+)\t/g,'<acronym title="$1">');
-		a=a.replace(/&\/acro\t/g,"</acronym>");a=a.replace(/&a\t([^\t]+)\t([^\t]*)\t/g,'<a href="$1" title="$2">');a=a.replace(/&avatar\t([^\t]+)\t([^\t]+)\t/g,":icon$1:");a=a.replace(/&img\t([^\t]+)\t([^\t]*)\t([^\t]*)\t/g,'<image src="$1" />');a=a.replace(/&\/a\t/g,"</a>");a=a.replace(/&emote\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g,"$1");a=a.replace(/&iframe\t([^\t]+)\t([^\t]*)\t([^\t]*)\t/g,'<iframe href="$1" height="$2" width="$3" />');return a=a.replace(/&thumb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g,
+		a=a.replace(/&\/acro\t/g,"</acronym>");a=a.replace(/&a\t([^\t]+)\t([^\t]*)\t/g,'<a href="$1" title="$2">');a=a.replace(/&avatar\t([^\t]+)\t([^\t]+)\t/g,":icon$1:");a=a.replace(/&img\t([^\t]+)\t([^\t]*)\t([^\t]*)\t/g,'<image src="$1" />');a=a.replace(/&\/a\t/g,"</a>");a=a.replace(/&emote\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g,"$1");a=a.replace(/&iframe\t([^\t]+)\t([^\t]*)\t([^\t]*)\t/g,'<iframe href="$1" height="$2" width="$3" />');return a=a.replace(/&thumb\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t([^\t]+)\t/g,
 		":thumb$1:")},updateMethods:function(){dAmnChat_onData_MM=dAmnChat_onData;dAmnChat_onData=function(a){try{a=d.dAmnEvents.onData(a)||a;a!="cancel"&&this.onData_MM(a)}catch(b){d.errorMsg(b,"dAmnChat_onData",a)}};dAmnChat_onClose_MM=dAmnChat_onClose;dAmnChat_onClose=function(){try{d.dAmnEvents.onClose();this.onClose_MM()}catch(a){d.errorMsg(a,"dAmnChat_onClose","")}};dAmnChat_onResize_MM=dAmnChat_onResize;dAmnChat_onResize=function(a){try{this.onResize_MM(a);d.dAmnEvents.onResize(a)}catch(b){d.errorMsg(b,
 		"dAmnChat_onResize",a)}};dAmnChat_onDisconnect_MM=dAmnChat_onDisconnect;dAmnChat_onDisconnect=function(a){try{var b=d.dAmnEvents.onDisconnect(a);a=b?b:a;this.onDisconnect_MM(a)}catch(c){d.errorMsg(c,"dAmnChat_onDisconnect",a)}};dAmnChat_onShutdown_MM=dAmnChat_onShutdown;dAmnChat_onShutdown=function(){try{d.dAmnEvents.onShutdown();this.onShutdown_MM()}catch(a){d.errorMsg(a,"dAmnChat_onShutdown",pkt)}};dAmnChat_Send_MM=dAmnChat_Send;dAmnChat_Send=function(a,b,c){try{a={cmd:a,channel:b,str:c};a=d.dAmnEvents.onSend(a);
 		a!="cancel"&&this.Send_MM(a.cmd,a.channel,a.str)}catch(e){d.errorMsg(e,"dAmnChat_Send",pkt)}};dAmnChanChat.prototype.Clear_MM=dAmnChanChat.prototype.Clear;dAmnChanChat.prototype.Clear=function(){try{d.dAmnEvents.onClear();this.Clear_MM()}catch(a){d.errorMsg(a,"dAmnChanChat.prototype.Clear","")}};dAmnChatTabs_activate_MM=dAmnChatTabs_activate;dAmnChatTabs_activate=function(a,b){var c=false;if(dAmnChatTab_active!=a)c=true;dAmnChatTabs_activate_MM(a,b);c&&d.dAmnEvents.onTabActivate([a,b])};dAmnChatInput_onKey_MM=
