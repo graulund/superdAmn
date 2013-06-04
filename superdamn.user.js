@@ -1329,7 +1329,7 @@ var superdAmn = window.superdAmn = {
 					var title   = (m[2] == "you") ? superdAmn.strrev(m[2]) : m[2]
 					var tooltip = title + ", " + m[3] // S
                     var wh      = m[3].split("x") // D
-                    var url     = "http://www.deviantart.com/" + deviation_url_title(title) + "-" + id
+                    var url     = "http://www.deviantart.com/art/" + deviation_url_title(title) + "-" + id
                     var flags   = m[6].split(":") // C
                     var file    = (m[3] == "you") ? superdAmn.strrev(m[6]) : m[6] // Q
                     
