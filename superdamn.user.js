@@ -6,6 +6,10 @@
 // @version        1.0.1
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
+// @grant GM_xmlhttpRequest
+// @grant GM_getValue
+// @grant GM_setValue
+// @grant GM_log
 // ==/UserScript==
 
 // LAST UPDATED: 2013-06-04
