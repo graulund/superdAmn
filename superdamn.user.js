@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name           SuperdAmn
+// @name           SuperdAmn (DWait fix)
 // @namespace      24bps.com
 // @description    Next generation dAmn awesomeness. Version 1.1.
 // @author         Andy Graulund <andy@graulund.com>
@@ -3102,7 +3102,10 @@ var superdAmn = window.superdAmn = {
 		}
 	}
 }
-superdAmn.init()
+// We need to use DWait to make this work properly now
+DWait.ready(['jms/pages/chat07/chatpage.js', 'jms/pages/chat07/dAmn.js', 'jms/pages/chat07/dAmnChat.js'], function() {
+    superdAmn.init()
+});
 }).toString())
 
 // SUPERDAMNLOCAL -----------------------------------
@@ -3204,7 +3207,8 @@ if(superdAmn_GM){
 // MiddleMan, a dAmn userscript toolkit made by miksago and sumopiggy, utilized by SuperdAmn.
 if(!document.getElementById("MiddleMan")){
 	mm = freeFunctionString((function(){
-		
+    
+    
 		// The below is highly compressed; to get the full editable MiddleMan, please go to
 		// http://sumopiggy.24bps.com/damn/middleman/middleman.js and paste that code in instead of this
 		(function(){var d=window.MiddleMan={loaded:false,debug:false,_title:{},_topic:{},init:function(){this.updateMethods();this.loaded=true;this.appendInlineStyles(".dockrocker_MM .popup2_MM{ display:none; width: auto; height: auto; right: 0px; } .dockrocker_MM:hover .popup2_MM{ display:block; }.dockrocker_MM .popup2_MM .f{ text-indent: 0px; padding: 2px 18px; }.dockrocker_MM .popup2_MM .f:hover{ cursor: pointer; background-color: #AFC81C; color: #2D3733 !important; }")},extend:function(a,b){a=a||{};b=
@@ -3237,12 +3241,13 @@ if(!document.getElementById("MiddleMan")){
 		dAmnChatInput_onKey;dAmnChatInput_onKey=function(a,b,c){d.dAmnEvents.onKey(a,b,c);var e=this.chatinput_el;if(b!=9){dAmnChatTabs_activate(this.cr.ns,true);delete this.tablist;if(b==13&&(c||!this.multiline||a.shiftKey||a.ctrlKey)&&e.value)if(!(a.shiftKey||!this.multiline&&a.ctrlKey)){var f=e.value.match(/^\/([a-z]+)([\s\S]*)/m);if(f){var g=f[1].toLowerCase(),h=null;if(f[2])if((f=f[2].match(/^\s([\s\S]*)/))&&f.length)h=f[1];if(this.cmds[g])if(this.cmds[g][1]=="MiddleMan"){if(this.history_pos!=-1&&this.history[this.history_pos]==
 		e.value){f=this.history.slice(0,this.history_pos);var i=this.history.slice(this.history_pos+1);this.history=f.concat(i).concat(this.history[this.history_pos])}else{this.history=this.history.concat(e.value);if(this.history.length>300)this.history=this.history.slice(1)}this.history_pos=-1;if(this.cmds[g][0])h&&d.Commands.trigger(g,h);else d.Commands.trigger(g,false);e.value="";e.focus()}}}}return this.onKey_MM(a,b,c)};dAmnChanChat.prototype.Init_MM=dAmnChanChat.prototype.Init;dAmnChanChat.prototype.Init=
 		function(a,b,c){this.Init_MM(a,b,c);for(var e in d.Commands.commands)this.input.cmds[e]=d.Commands.forDAmn(e);setTimeout(function(){d.dAmnEvents.onInit(a,b,c)},10)};dAmnChat.prototype.Send=dAmnChat_Send;dAmnChat.prototype.onData=dAmnChat_onData;dAmnChat.prototype.onClose=dAmnChat_onClose;dAmnChat.prototype.onResize=dAmnChat_onResize;dAmnChatInput.prototype.onKey=dAmnChatInput_onKey;dAmnChat.prototype.onShutdown=dAmnChat_onShutdown;dAmnChat.prototype.onDisconnect=dAmnChat_onDisconnect;dAmnChat.prototype.Send_MM=
-		dAmnChat_Send_MM;dAmnChat.prototype.onData_MM=dAmnChat_onData_MM;dAmnChat.prototype.onClose_MM=dAmnChat_onClose_MM;dAmnChat.prototype.onResize_MM=dAmnChat_onResize_MM;dAmnChatInput.prototype.onKey_MM=dAmnChatInput_onKey_MM;dAmnChat.prototype.onShutdown_MM=dAmnChat_onShutdown_MM;dAmnChat.prototype.onDisconnect_MM=dAmnChat_onDisconnect_MM}};d.init()})();
+		dAmnChat_Send_MM;dAmnChat.prototype.onData_MM=dAmnChat_onData_MM;dAmnChat.prototype.onClose_MM=dAmnChat_onClose_MM;dAmnChat.prototype.onResize_MM=dAmnChat_onResize_MM;dAmnChatInput.prototype.onKey_MM=dAmnChatInput_onKey_MM;dAmnChat.prototype.onShutdown_MM=dAmnChat_onShutdown_MM;dAmnChat.prototype.onDisconnect_MM=dAmnChat_onDisconnect_MM}};
+        // We need to use DWait to make this work properly now
+        DWait.ready(['jms/pages/chat07/chatpage.js', 'jms/pages/chat07/dAmn.js', 'jms/pages/chat07/dAmnChat.js'], function() {d.init()});})();
 		// I MODIFIED IT SLIGHTLY:
 		// -- MiddleMan.dAmnEvents.onKey:function(a){d.Event.trigger("dAmnChat","key",a)} --> onKey:function(a,b,c){d.Event.trigger("dAmnChat","key",[a,b,c])}
 		// -- MiddleMan.getChannelNs:function(a){if(!a)return dAmnChatTab_active;a=a.replace("chat:","");a=a.replace("#","");return"chat:"+a} --> getChannelNs:function(a){if(!a)return dAmnChatTab_active;if(a.match(/^pchat:[a-zA-Z0-9-]+:[a-zA-Z0-9-]+$/))return a;a=a.replace("chat:","");a=a.replace("#","");return"chat:"+a}
 		// REMEMBER THIS WHEN INSERTING THE ORIGINAL
-		
 		}).toString())
 		
 	var	MMScript = document.createElement("script")
