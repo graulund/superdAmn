@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name           SuperdAmn (DWait fix)
+// @name           SuperdAmn
 // @namespace      24bps.com
 // @description    Next generation dAmn awesomeness. Version 1.1.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.2.0
+// @version        1.0.1
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
@@ -586,7 +586,6 @@ var superdAmn = window.superdAmn = {
 		init: function(){
 			var SD = superdAmn
             // attempting to take advantage of that absurd ass workaround
-            this.addworkarounds()
 			this.addmaketexthandle()
 			this.addmsghandle()
 			this.addtopicstores()
@@ -1522,41 +1521,6 @@ var superdAmn = window.superdAmn = {
 				}
 			}, false)
 		},
-        // ADDWORKAROUNDS: Pulls variables and functions that are inaccessible into the global scope
-        addworkarounds: function(){
-            // to obtain out-of-scope variables
-            // first, dAmnChatTab_active
-            var retrieveTab = false;
-            dAmnChatTabs_activate_SD = dAmnChatTabs_activate;
-            dAmnChatTabs_activate = function(id, real) {
-                if (retrieveTab)
-                {
-                    console.log("Using tab retrieval code...");
-                    window.dAmnChatTab_active_SD = id;
-                }
-                else return dAmnChatTabs_activate_SD(id, real);
-            }
-            window.__defineGetter__("dAmnChatTab_active", function() {
-                retrieveTab = true;
-                var tab = dAmnChatTabs_activate_active();
-                retrieveTab = false;
-                return dAmnChatTab_active_SD;
-            });
-            // now dAmnChats
-            var retrieveChats = false;
-            dAmn_objForEach_SD = dAmn_objForEach;
-            dAmn_objForEach = function(obj, f) {
-                if (retrieveChats)
-                {
-                    console.log("Retrieving dAmnChats...");
-                    window.dAmnChats = obj;
-                    retrieveChats = false;
-                }
-                return dAmn_objForEach_SD(obj, f);
-            }
-            retrieveChats = true;
-            dAmnChatbase_onResize_cb();
-        },
 		// UPDATETITLE: Updates the page title whenever called to a compact one with current room name included
 		updatetitle: function(){
 			function _updatetitle(){
