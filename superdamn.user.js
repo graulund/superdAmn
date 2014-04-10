@@ -1542,6 +1542,20 @@ var superdAmn = window.superdAmn = {
                 retrieveTab = false;
                 return dAmnChatTab_active_SD;
             });
+            // now dAmnChats
+            var retrieveChats = false;
+            dAmn_objForEach_SD = dAmn_objForEach;
+            dAmn_objForEach = function(obj, f) {
+                if (retrieveChats)
+                {
+                    console.log("Retrieving dAmnChats...");
+                    window.dAmnChats = obj;
+                    retrieveChats = false;
+                }
+                return dAmn_objForEach_SD(obj, f);
+            }
+            retrieveChats = true;
+            dAmnChatbase_onResize_cb();
         },
 		// UPDATETITLE: Updates the page title whenever called to a compact one with current room name included
 		updatetitle: function(){
