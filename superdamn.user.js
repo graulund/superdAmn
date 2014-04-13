@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.1.
+// @description    Next generation dAmn awesomeness. Version 1.0.2.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0.1
+// @version        1.0.2
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
@@ -12,7 +12,7 @@
 // @grant GM_log
 // ==/UserScript==
 
-// LAST UPDATED: 2013-06-04
+// LAST UPDATED: 2014-04-12
 
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
