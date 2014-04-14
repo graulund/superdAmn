@@ -3036,25 +3036,26 @@ var superdAmn = window.superdAmn = {
 	},
 	// UPDATECHECK: Checks for new versions of SuperdAmn!
 	updatecheck: function(){
-		jQuery.getJSON("http://temple.24bps.com/superdamn/uptodate.php?jsoncallback=?&" + (new Date()).getDay(), function(data){
+		jQuery.getJSON("https://api.github.com/repos/aaronpearce/superdAmn/contents/README.md?callback=?&" + (new Date()).getDay(), function(data){
+			var internalData = atob(data['data']['content']);
 			var SD = superdAmn
-			if(SD.ia(data.a)){ // SuperdAmn Ambassadors
-				SD.ambassadors = data.a
+			if(SD.ia(internalData.a)){ // SuperdAmn Ambassadors
+				SD.ambassadors = internalData.a
 				SD.updatemembers()
 			}
-			if(data.v && data.d && data.d > SD.vd){ // It's a newer version, zomg!
+			if(internalData.v && internalData.d && internalData.d > SD.vd){ // It's a newer version, zomg!
 				if(!SD.P.ignoreversions || SD.P.ignoreversions && !(data.v in SD.oc(SD.P.ignoreversions))){
 					var m  = document.createElement("div")
 					var d  = new Date()
-					d.setTime(data.d*1000)
+					d.setTime(internalData.d*1000)
 					m.id        = "superdamnmessage"
 					m.className = "yay"
 					m.innerHTML = "<a class=\"close\" href=\"javascript://\" title=\"Close and don't alert me again until there's an even newer version\"></a>"
 									+ "<strong>There&#8217;s a new version of SuperdAmn available &#8212; <a class=\"download\" href=\"" + SD.superdAmnurl() + "\">Download</a></strong><br />"
-									+ (data.u ? SD.he(data.u) + "<br />" : "") + "<small><em><strong>" + SD.he(data.v) + "</strong>,"
+									+ (internalData.u ? SD.he(internalData.u) + "<br />" : "") + "<small><em><strong>" + SD.he(internalData.v) + "</strong>,"
 									+ " released at " + d.toString().replace(/[0-9]+:[0-9]+/, "/").split(" /")[0]
 									+ " &#8212; When downloaded, reload to install</em></small>"
-					$x(".//a[@class='close']", m)[0].addEventListener("click", function(evt){ evt.preventDefault(); superdAmn.P.ignoreversions.push(data.v); superdAmn.prefs.save(); this.parentNode.style.display = "none" }, false)
+					$x(".//a[@class='close']", m)[0].addEventListener("click", function(evt){ evt.preventDefault(); superdAmn.P.ignoreversions.push(internalData.v); superdAmn.prefs.save(); this.parentNode.style.display = "none" }, false)
 					document.getElementsByTagName("body")[0].appendChild(m)
 				}
 				SD.newVersion = true
