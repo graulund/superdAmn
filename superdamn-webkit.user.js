@@ -8,7 +8,7 @@
 // @include        http://chat.deviantart.lan/chat/*
 // ==/UserScript==
 
-// LAST UPDATED: 2013-04-12
+// LAST UPDATED: 2013-04-14
 
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
@@ -59,7 +59,7 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
 	v:  "1.0.2",
-	vd: 1370384014,
+	vd: 1397505376,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",

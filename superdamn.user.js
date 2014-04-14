@@ -12,7 +12,7 @@
 // @grant GM_log
 // ==/UserScript==
 
-// LAST UPDATED: 2014-04-12
+// LAST UPDATED: 2014-04-14
 
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
@@ -62,8 +62,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.1",
-	vd: 1370384014,
+	v:  "1.0.2",
+	vd: 1397505376,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -3067,25 +3067,26 @@ var superdAmn = window.superdAmn = {
 	},
 	// UPDATECHECK: Checks for new versions of SuperdAmn!
 	updatecheck: function(){
-		jQuery.getJSON("http://temple.24bps.com/superdamn/uptodate.php?jsoncallback=?&" + (new Date()).getDay(), function(data){
+		jQuery.getJSON("https://api.github.com/repos/aaronpearce/superdAmn/contents/update.json?callback=?&" + (new Date()).getDay(), function(data){
+			var internalData = jQuery.parseJSON(atob(data['data']['content']))
 			var SD = superdAmn
-			if(SD.ia(data.a)){ // SuperdAmn Ambassadors
-				SD.ambassadors = data.a
+			if(SD.ia(internalData.a)){ // SuperdAmn Ambassadors
+				SD.ambassadors = internalData.a
 				SD.updatemembers()
 			}
-			if(data.v && data.d && data.d > SD.vd){ // It's a newer version, zomg!
-				if(!SD.P.ignoreversions || SD.P.ignoreversions && !(data.v in SD.oc(SD.P.ignoreversions))){
+			if(internalData.v && internalData.d && internalData.d > SD.vd){ // It's a newer version, zomg!
+				if(!SD.P.ignoreversions || SD.P.ignoreversions && !(internalData.v in SD.oc(SD.P.ignoreversions))){
 					var m  = document.createElement("div")
 					var d  = new Date()
-					d.setTime(data.d*1000)
+					d.setTime(internalData.d*1000)
 					m.id        = "superdamnmessage"
 					m.className = "yay"
 					m.innerHTML = "<a class=\"close\" href=\"javascript://\" title=\"Close and don't alert me again until there's an even newer version\"></a>"
 									+ "<strong>There&#8217;s a new version of SuperdAmn available &#8212; <a class=\"download\" href=\"" + SD.superdAmnurl() + "\">Download</a></strong><br />"
-									+ (data.u ? SD.he(data.u) + "<br />" : "") + "<small><em><strong>" + SD.he(data.v) + "</strong>,"
+									+ (internalData.u ? SD.he(internalData.u) + "<br />" : "") + "<small><em><strong>" + SD.he(internalData.v) + "</strong>,"
 									+ " released at " + d.toString().replace(/[0-9]+:[0-9]+/, "/").split(" /")[0]
 									+ " &#8212; When downloaded, reload to install</em></small>"
-					$x(".//a[@class='close']", m)[0].addEventListener("click", function(evt){ evt.preventDefault(); superdAmn.P.ignoreversions.push(data.v); superdAmn.prefs.save(); this.parentNode.style.display = "none" }, false)
+					$x(".//a[@class='close']", m)[0].addEventListener("click", function(evt){ evt.preventDefault(); superdAmn.P.ignoreversions.push(internalData.v); superdAmn.prefs.save(); this.parentNode.style.display = "none" }, false)
 					document.getElementsByTagName("body")[0].appendChild(m)
 				}
 				SD.newVersion = true
@@ -3095,11 +3096,11 @@ var superdAmn = window.superdAmn = {
 	// SUPERDAMNURL: Return the URL to the SuperdAmn userscript
 	superdAmnurl: function(){
 		if(superdAmn.browser.chrome){
-			return "http://temple.24bps.com/superdamn/superdamn-webkit.user.js"
+			return "https://github.com/aaronpearce/superdAmn/raw/master/superdamn-webkit.user.js"
 		} else if(superdAmn.browser.safari){
-			return "http://temple.24bps.com/superdamn/SuperdAmnSafari.safariextz"
+			return "https://github.com/aaronpearce/superdAmn/raw/master/SuperdAmnSafari.safariextz"
 		} else {
-			return "http://temple.24bps.com/superdamn/superdamn.user.js"
+			return "https://github.com/aaronpearce/superdAmn/raw/master/superdamn.user.js"
 		}
 	}
 }
