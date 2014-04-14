@@ -3036,15 +3036,15 @@ var superdAmn = window.superdAmn = {
 	},
 	// UPDATECHECK: Checks for new versions of SuperdAmn!
 	updatecheck: function(){
-		jQuery.getJSON("https://api.github.com/repos/aaronpearce/superdAmn/contents/README.md?callback=?&" + (new Date()).getDay(), function(data){
-			var internalData = atob(data['data']['content']);
+		jQuery.getJSON("https://api.github.com/repos/aaronpearce/superdAmn/contents/update.json?callback=?&" + (new Date()).getDay(), function(data){
+			var internalData = jQuery.parseJSON(atob(data['data']['content']))
 			var SD = superdAmn
 			if(SD.ia(internalData.a)){ // SuperdAmn Ambassadors
 				SD.ambassadors = internalData.a
 				SD.updatemembers()
 			}
 			if(internalData.v && internalData.d && internalData.d > SD.vd){ // It's a newer version, zomg!
-				if(!SD.P.ignoreversions || SD.P.ignoreversions && !(data.v in SD.oc(SD.P.ignoreversions))){
+				if(!SD.P.ignoreversions || SD.P.ignoreversions && !(internalData.v in SD.oc(SD.P.ignoreversions))){
 					var m  = document.createElement("div")
 					var d  = new Date()
 					d.setTime(internalData.d*1000)
