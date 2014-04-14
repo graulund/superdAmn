@@ -3065,11 +3065,11 @@ var superdAmn = window.superdAmn = {
 	// SUPERDAMNURL: Return the URL to the SuperdAmn userscript
 	superdAmnurl: function(){
 		if(superdAmn.browser.chrome){
-			return "http://temple.24bps.com/superdamn/superdamn-webkit.user.js"
+			return "https://github.com/aaronpearce/superdAmn/raw/master/superdamn-webkit.user.js"
 		} else if(superdAmn.browser.safari){
-			return "http://temple.24bps.com/superdamn/SuperdAmnSafari.safariextz"
+			return "https://github.com/aaronpearce/superdAmn/raw/master/SuperdAmnSafari.safariextz"
 		} else {
-			return "http://temple.24bps.com/superdamn/superdamn.user.js"
+			return "https://github.com/aaronpearce/superdAmn/raw/master/superdamn.user.js"
 		}
 	}
 }
