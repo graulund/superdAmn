@@ -3068,7 +3068,7 @@ var superdAmn = window.superdAmn = {
 	// UPDATECHECK: Checks for new versions of SuperdAmn!
 	updatecheck: function(){
 		jQuery.getJSON("https://api.github.com/repos/aaronpearce/superdAmn/contents/update.json?callback=?&" + (new Date()).getDay(), function(data){
-			var internalData = jQuery.parseJSON(atob(data['data']['content']))
+			var internalData = jQuery.parseJSON(atob(data.data.content))
 			var SD = superdAmn
 			if(SD.ia(internalData.a)){ // SuperdAmn Ambassadors
 				SD.ambassadors = internalData.a
