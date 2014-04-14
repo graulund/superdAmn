@@ -3067,7 +3067,7 @@ var superdAmn = window.superdAmn = {
 	},
 	// UPDATECHECK: Checks for new versions of SuperdAmn!
 	updatecheck: function(){
-		jQuery.getJSON("https://api.github.com/repos/aaronpearce/superdAmn/contents/update.json?callback=?&" + (new Date()).getDay(), function(data){
+		jQuery.getJSON("https://api.github.com/repos/graulund/superdAmn/contents/update.json?callback=?&" + (new Date()).getDay(), function(data){
 			var internalData = jQuery.parseJSON(atob(data.data.content))
 			var SD = superdAmn
 			if(SD.ia(internalData.a)){ // SuperdAmn Ambassadors
@@ -3096,11 +3096,11 @@ var superdAmn = window.superdAmn = {
 	// SUPERDAMNURL: Return the URL to the SuperdAmn userscript
 	superdAmnurl: function(){
 		if(superdAmn.browser.chrome){
-			return "https://github.com/aaronpearce/superdAmn/raw/master/superdamn-webkit.user.js"
+			return "https://github.com/graulund/superdAmn/raw/master/superdamn-webkit.user.js"
 		} else if(superdAmn.browser.safari){
-			return "https://github.com/aaronpearce/superdAmn/raw/master/SuperdAmnSafari.safariextz"
+			return "https://github.com/graulund/superdAmn/raw/master/SuperdAmnSafari.safariextz"
 		} else {
-			return "https://github.com/aaronpearce/superdAmn/raw/master/superdamn.user.js"
+			return "https://github.com/graulund/superdAmn/raw/master/superdamn.user.js"
 		}
 	}
 }
