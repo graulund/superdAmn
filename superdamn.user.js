@@ -37,10 +37,10 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 // With significant portions made by or inspired by products made by:
 // siebenzehn, Zikes, zachriel, exsecror, realillusions, electricjonny,
-// sumopiggy, miksago, Kiwanji, Plizzo, KnightAR
+// sumopiggy, miksago, Kiwanji, Plizzo, KnightAR, deviant-garde, Pickley
 // Thank you guys!
 
-// Copyright (c) 2009 - 2013 Andy Graulund / electricnet
+// Copyright (c) 2009 - 2014 Andy Graulund / electricnet
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
