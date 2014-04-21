@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0.3.
+// @description    Next generation dAmn awesomeness. Version 1.0.4.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0.3
+// @version        1.0.4
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
@@ -12,8 +12,7 @@
 // @grant GM_log
 // ==/UserScript==
 
-// LAST UPDATED: 2014-04-14
-
+// LAST UPDATED: 2014-04-21
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
 // PROLOGUE:
@@ -62,8 +61,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.3",
-	vd: 1397505376,
+	v:  "1.0.4",
+	vd: 1398120458,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -655,8 +654,7 @@ var superdAmn = window.superdAmn = {
 				
 				// Pchattin' should always highlight you
 				if(this.cr.SD && this.cr.SD.other && fromun.toLowerCase() == this.cr.SD.other.toLowerCase()){ hilite = 2 }
-				
-                this.FormatMsg(input_text, bind(this, function (text) {
+                this.FormatMsg(input_text, (function (text) {
                     var o, i, ts, f, ff, t, tt
                     
                     o = dAmn_MakeDiv("msg " + style)
@@ -717,7 +715,7 @@ var superdAmn = window.superdAmn = {
                             o.setAttribute("style", (o.getAttribute("style") || "").replace(/display\s*:\s*[a-z-]+\s*;?/, ""))
                         }
                     }
-                }));
+                }).bind(this));
 			}
 		},
 		// ADDMSGHANDLE: Adds changes to dAmn's onMsg function: telling people that you're away
@@ -1351,9 +1349,9 @@ var superdAmn = window.superdAmn = {
                 }
                 
 				// Let's roll the standard formatting now!
-				dAmnChanChat.prototype.FormatMsg_SD(msg, bind(this, function (msg) {
+                dAmnChanChat.prototype.FormatMsg_SD(msg, (function (msg) {
                     $deferred.resolveWith(this, [msg]);
-                }));
+                }).bind(this));
 				return $deferred;
 			}
 		},
