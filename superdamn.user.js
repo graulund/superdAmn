@@ -12,7 +12,7 @@
 // @grant GM_log
 // ==/UserScript==
 
-// LAST UPDATED: 2014-04-21
+// LAST UPDATED: 2014-12-19
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
 // PROLOGUE:
@@ -61,8 +61,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.4",
-	vd: 1398120458,
+	v:  "1.0.5",
+	vd: 1418963531,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -1093,7 +1093,7 @@ var superdAmn = window.superdAmn = {
 			}
 			chatroom_manager_onresize = function(e){
 				var h   = window.innerHeight || document.body.clientHeight
-				var ofs = superdAmn.v7 ? 42 : 32
+				var ofs = superdAmn.v7 ? 50 : 32
 				var css = (h - ofs) + "px"
 				document.getElementById("window").style.height    = css
 				document.getElementById("window").style.minHeight = css
