@@ -3276,7 +3276,7 @@ sdel.appendChild(document.createTextNode(sd))
 
 // Creating SuperdAmn FAQ element
 sfel = document.createElement("script"); sfel.id = "superdamnfaq"
-sfel.src = "http://temple.24bps.com/superdamn/faqs.js?" + (new Date()).getDate()
+sfel.src = "https://cdn.rawgit.com/graluund/superdAmn/master/faqs.js?" + (new Date()).getDate()
 
 // Creating SuperdAmn IBL element
 siel = document.createElement("script"); siel.id = "superdamnibl"
