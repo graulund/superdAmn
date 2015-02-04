@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0.4.
+// @description    Next generation dAmn awesomeness. Version 1.0.6.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0.4
+// @version        1.0.6
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
@@ -12,7 +12,7 @@
 // @grant GM_log
 // ==/UserScript==
 
-// LAST UPDATED: 2014-12-19
+// LAST UPDATED: 2015-01-25
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
 // PROLOGUE:
@@ -61,8 +61,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.5",
-	vd: 1418963531,
+	v:  "1.0.6",
+	vd: 1422212639,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -1799,7 +1799,7 @@ var superdAmn = window.superdAmn = {
 							+ (superdAmn_GM ? "<br />If adding to the public database, it is required that the code is enclosed in colons like <strong>:this:</strong>." : "") + "</p>"
 							+ "<p class=\"input\" style=\"margin-top:0\"><label class=\"l\"><select id=\"sdea-devidtype\"><option id=\"sdea-dtdevid\" selected=\"selected\">Deviation ID:</option><option>Code:</option></select> </label><input type=\"text\" id=\"sdea-devid\" /></p>"
 							+ "<p><input type=\"submit\" style=\"font-weight:bold\" value=\"Add\" /> <select id=\"sdea-type\"" + SD.prefs.disabled(!SD.P.publicemotes || !superdAmn_GM) + "><option id=\"sdea-tpersonal\"" + SD.prefs.selected(!SD.P.publicemotes || !superdAmn_GM) + ">to my own emotes list</option><option>to the public emote database</option></select></p>"
-							+ (superdAmn_GM ? "<div>When adding to the database, it is suggested that you search for the code first to see if your suggestion already exists.</div>" : "<div>It&#8217;s not possible to submit directly to the database using a non-Firefox browser. Please go to the Emotecloud site to <strong><a href=\"http://thezikes.org/emotecloud/add.php\">vote on and submit public emotes</a></strong></div>") + "</form>"
+							+ (superdAmn_GM ? "<div>When adding to the database, it is suggested that you search for the code first to see if your suggestion already exists.</div>" : "<div>It&#8217;s not possible to submit directly to the database using a non-Firefox browser. Please go to the site to <strong><a href=\"http://thezikes.org/emotecloud/add.php\">vote on and submit public emotes</a></strong></div>") + "</form>"
 				html  += "<div id=\"sde-browser\"><form id=\"sde-searchf\" action=\"" + SD.emotes.host + "/search.php\" method=\"get\" style=\"display:none\"><div>This will search for emote/code combinations already in our emote database. If you see emotes that are not in our database, click &#8220;Add&#8221; above.</div><input type=\"text\" value=\"Enter an emote code...\" /></form>"
 				html  += "<ul class=\"letters\"><li>A</li><li>B</li><li>C</li><li>D</li><li>E</li><li>F</li><li>G</li><li>H</li><li>I</li><li>J</li><li>K</li><li>L</li><li>M</li><li>N</li><li>O</li><li>P</li><li>Q</li><li>R</li><li>S</li><li>T</li><li>U</li><li>V</li><li>W</li><li>X</li><li>Y</li><li>Z</li><li title=\"Emotes that do not start with a letter\">#</li>" + (SD.P.publicemotes ? "<li title=\"Emotes that you voted up\" style=\"margin-right:0\">&#x2605;</li>" : "") + "</ul>"
 				html  += "<ul class=\"browse\"><li>Loading...</li></ul><div class=\"bottom\">" + (SD.P.publicemotes ? "<span><a href=\"javascript://\" id=\"sde-whynot\">Why isn&#8217;t <em>emote X</em> on the list?</a></span>" + (!superdAmn_GM ? "<br /><span><strong><a href=\"http://thezikes.org/emotecloud/\" id=\"sde-chrome\">Vote on and submit public emotes</a></strong></span>" : "") : "") + "<a href=\"javascript://\" id=\"sde-reload\">Reload</a></div></div>"
@@ -3276,7 +3276,7 @@ sdel.appendChild(document.createTextNode(sd))
 
 // Creating SuperdAmn FAQ element
 sfel = document.createElement("script"); sfel.id = "superdamnfaq"
-sfel.src = "http://temple.24bps.com/superdamn/faqs.js?" + (new Date()).getDate()
+sfel.src = "https://github.com/graulund/superdAmn/raw/master/faqs.js?" + (new Date()).getDate()
 
 // Creating SuperdAmn IBL element
 siel = document.createElement("script"); siel.id = "superdamnibl"

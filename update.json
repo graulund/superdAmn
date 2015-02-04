@@ -1,7 +1,7 @@
 {
-	"v": "1.0.5",
-	"d": 1418963531,
-	"u": "1.0.5: Fixed issue related to the change in header height 12/19/14",
+	"v": "1.0.6",
+	"d": 1422212639,
+	"u": "1.0.6: Fixes issues regarding :faq: codes not functioning 12/25/14",
 	"a": [
 	]
 }

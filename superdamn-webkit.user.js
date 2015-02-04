@@ -3,14 +3,14 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0.4.
+// @description    Next generation dAmn awesomeness. Version 1.0.6.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0.4
+// @version        1.0.6
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // ==/UserScript==
 
-// LAST UPDATED: 2014-12-19
+// LAST UPDATED: 2015-01-25
 
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
@@ -60,8 +60,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.5",
-	vd: 1418963531,
+	v:  "1.0.6",
+	vd: 1422212639,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -1348,6 +1348,7 @@ var superdAmn = window.superdAmn = {
 				}
 				// Correcting special display-styles for system user accounts +help and +faq
 				str = str.replace(/:devhelp:/g,"<a href=\"http://help.deviantart.com/contact\">Help Desk</a>")
+				str = str.replace(/:devhelpdesk:/g,"<a href=\"http://help.deviantart.com/contact\">Help Desk</a>")
 				str = str.replace(/:devfaq:/g, "<a href=\"http://help.deviantart.com/\">FAQ</a>")
 				// Custom emotes
 				str = SD.emotes.add(str)
@@ -3243,7 +3244,7 @@ sdel.appendChild(document.createTextNode("(" + sd + ")()"))
 
 // Creating SuperdAmn FAQ element
 sfel = document.createElement("script"); sfel.id = "superdamnfaq"
-sfel.src = "http://temple.24bps.com/superdamn/faqs.js?" + (new Date()).getDate()
+sfel.src = "https://github.com/graulund/superdAmn/raw/master/faqs.js?" + (new Date()).getDate()
 
 // Creating SuperdAmn IBL element
 siel = document.createElement("script"); siel.id = "superdamnibl"
