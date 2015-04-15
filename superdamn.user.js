@@ -153,7 +153,6 @@ var superdAmn = window.superdAmn = {
 				+ ".superdamn-devlink { background: #c9d3c8 url(" + this.imgs[21] + ") no-repeat 6px 2px; padding: 3px 6px 3px 28px; text-decoration: none !important; } .superdamn-devlink em { font-style: italic; text-decoration: underline; color: #4a524e; } .superdamn-devlink strong { font-weight: bold; color: #647068;/*#98ae9d;*/ }\n"
 				+ ".damncrc-chat-window a.superdamn-devlink, .damncrc-topic a.superdamn-devlink, .damncr-title a.superdamn-devlink { text-decoration: none !important; }"
 	},
-	u: dAmn_Client_Username,
 	
 	// Standard user preferences (not YOURS, they're stored somewhere else. DON'T CHANGE THIS)
 	P:       { "timestamps": true, "useam": true, "awaymsg": "is away: %REASON%", "backmsg": "is back", "beepmsg": "%USER%: I've been away for %TIMESINCE%. Reason: %REASON%", "showbeep": true, "beepinterval": 60, "fixtabs": 1, "formattingbuttons": true, "ignores": {}, "useignore": true, "showignore": true, "retroignore": true, "ignoremsg": "is ignoring %USER% now", "unignoremsg": "is not ignoring %USER% anymore", "customemotes": false, "publicemotes": true, "emotes": {}, "pickerright": false, "showsend": false, "ignoreversions": [], "tabscounts": true, "nothumbshighlight": false },
@@ -3104,7 +3103,8 @@ var superdAmn = window.superdAmn = {
 }
 // We need to use DWait to make this work properly now
 DWait.ready(['jms/pages/chat07/chatpage.js', 'jms/pages/chat07/dAmn.js', 'jms/pages/chat07/dAmnChat.js'], function() {
-    superdAmn.init()
+    superdAmn.dAmn.u();
+    superdAmn.init();
 });
 }).toString())
 
