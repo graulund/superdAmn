@@ -1,7 +1,7 @@
 {
-	"v": "1.0.7",
-	"d": 1423015718,
-	"u": "1.0.7: Fixes issues regarding :faq: codes not functioning 02/03/14",
+	"v": "1.0.8",
+	"d": 1429229926,
+	"u": "1.0.8: Fixing how SuperdAmn used to occasionally not load when entering the chats.",
 	"a": [
 	]
 }
