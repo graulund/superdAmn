@@ -1372,12 +1372,13 @@ var superdAmn = window.superdAmn = {
 						}
 					}
 				}
-				
+
 				// @username -> :devusername:
 				str = str.replace(/^@([A-Za-z0-9_]+)$/g, ":dev$1:")
 
 				// Correcting special display-styles for system user accounts +help and +faq
 				str = str.replace(/:devhelp:/g,"<a href=\"http://help.deviantart.com/contact\">Help Desk</a>")
+				str = str.replace(/:devhelpdesk:/g,"<a href=\"http://help.deviantart.com/contact\">Help Desk</a>")
 				str = str.replace(/:devfaq:/g, "<a href=\"http://help.deviantart.com/\">FAQ</a>")
 				// Custom emotes
 				str = SD.emotes.add(str)
