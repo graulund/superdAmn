@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0.8.
+// @description    Next generation dAmn awesomeness. Version 1.0.9.
 // @author         Andy Graulund <andy@graulund.com>
 // @version        1.0.9
 // @include        http://chat.deviantart.com/chat/*
