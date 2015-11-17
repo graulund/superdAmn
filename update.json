@@ -1,7 +1,7 @@
 {
-	"v": "1.0.8",
-	"d": 1429229926,
-	"u": "1.0.8: Fixing how SuperdAmn used to occasionally not load when entering the chats.",
+	"v": "1.0.9",
+	"d": 1447790151,
+	"u": "1.0.9: Fixes dAmn to resize correctly when Watch 2.0 is on. @username will now map to :devusername:. Custom ignore messages have been removed as they were being misused to abuse the person being ignored.",
 	"a": [
 	]
 }
