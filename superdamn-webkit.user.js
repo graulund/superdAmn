@@ -154,7 +154,7 @@ var superdAmn = window.superdAmn = {
 	},
 	
 	// Standard user preferences (not YOURS, they're stored somewhere else. DON'T CHANGE THIS)
-	P:       { "timestamps": true, "useam": true, "awaymsg": "is away: %REASON%", "backmsg": "is back", "beepmsg": "%USER%: I've been away for %TIMESINCE%. Reason: %REASON%", "showbeep": true, "beepinterval": 60, "fixtabs": 1, "formattingbuttons": true, "ignores": {}, "useignore": true, "showignore": true, "retroignore": true, "customemotes": false, "publicemotes": true, "emotes": {}, "pickerright": false, "showsend": false, "ignoreversions": [], "tabscounts": true, "nothumbshighlight": false },
+	P:       { "timestamps": true, "useam": true, "awaymsg": "is away: %REASON%", "backmsg": "is back", "beepmsg": "%USER%: I've been away for %TIMESINCE%. Reason: %REASON%", "showbeep": true, "beepinterval": 60, "fixtabs": 1, "formattingbuttons": true, "ignores": {}, "useignore": true, "showignore": false, "retroignore": true, "customemotes": false, "publicemotes": true, "emotes": {}, "pickerright": false, "showsend": false, "ignoreversions": [], "tabscounts": true, "nothumbshighlight": false },
 	Pt:      false, // Temporary P, for while you're changing preferences
 	
 	off:     true,
