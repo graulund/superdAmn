@@ -155,7 +155,7 @@ var superdAmn = window.superdAmn = {
 	},
 	
 	// Standard user preferences (not YOURS, they're stored somewhere else. DON'T CHANGE THIS)
-	P:       { "timestamps": true, "useam": true, "awaymsg": "is away: %REASON%", "backmsg": "is back", "beepmsg": "%USER%: I've been away for %TIMESINCE%. Reason: %REASON%", "showbeep": true, "beepinterval": 60, "fixtabs": 1, "formattingbuttons": true, "ignores": {}, "useignore": true, "showignore": true, "retroignore": true, "ignoremsg": "is ignoring %USER% now", "unignoremsg": "is not ignoring %USER% anymore", "customemotes": false, "publicemotes": true, "emotes": {}, "pickerright": false, "showsend": false, "ignoreversions": [], "tabscounts": true, "nothumbshighlight": false },
+	P:       { "timestamps": true, "useam": true, "awaymsg": "is away: %REASON%", "backmsg": "is back", "beepmsg": "%USER%: I've been away for %TIMESINCE%. Reason: %REASON%", "showbeep": true, "beepinterval": 60, "fixtabs": 1, "formattingbuttons": true, "ignores": {}, "useignore": true, "showignore": false, "retroignore": true, "customemotes": false, "publicemotes": true, "emotes": {}, "pickerright": false, "showsend": false, "ignoreversions": [], "tabscounts": true, "nothumbshighlight": false },
 	Pt:      false, // Temporary P, for while you're changing preferences
 	
 	off:     true,
@@ -398,8 +398,8 @@ var superdAmn = window.superdAmn = {
 						} else {
 							SD.ignores.add(lcusers[u])
 							SD.cnotice("ignore", users[u] + " was added to your ignore list.")
-							if(SD.P.showignore && SD.P.ignoremsg){
-								MiddleMan.dAmnSend.action(ns, SD.format.userMsg(SD.P.ignoremsg, users[u]))
+							if(SD.P.showignore){
+								MiddleMan.dAmnSend.action(ns, SD.format.userMsg("is ignoring %USER% now", users[u]))
 							}
 						}
 					}
@@ -421,8 +421,8 @@ var superdAmn = window.superdAmn = {
 					if(lcusers[u] in SD.P.ignores){
 						SD.ignores.remove(lcusers[u])
 						SD.cnotice("unignore", users[u] + " was removed from your ignore list.")
-						if(SD.P.showignore && SD.P.unignoremsg){
-							MiddleMan.dAmnSend.action(ns, SD.format.userMsg(SD.P.unignoremsg, users[u]))
+						if(SD.P.showignore){
+							MiddleMan.dAmnSend.action(ns, SD.format.userMsg("is not ignoring %USER% anymore", users[u]))
 						}
 					} else {
 						SD.error("unignore", users[u] + " could not be found on your ignore list. Type <em>/ignore list</em> to see it.")
@@ -2625,17 +2625,13 @@ var superdAmn = window.superdAmn = {
 			+ "<select id=\"sdp-pickerright\"" + this.disabled(!SD.Pt.customemotes) + "><option>Emotes picker on the left</option><option" + this.selected(SD.Pt.pickerright) + ">Emotes picker on the right</option></select></p>"
 			+ "<p style=\"margin-top:0.3em\"><input type=\"checkbox\" id=\"sdp-publicemotes\"" + this.checked(SD.Pt.publicemotes) + this.disabled(!SD.Pt.customemotes) + " /> <label for=\"sdp-publicemotes\">Enable public custom emotes list</label></p>"
 			+ "<h3><span>Ignores</span></h3><p><input type=\"checkbox\" id=\"sdp-useignore\"" + this.checked(SD.Pt.useignore) + " /> <label for=\"sdp-useignore\">Activate ignores</label> <input type=\"checkbox\" id=\"sdp-showignore\"" + this.checked(SD.Pt.showignore) + this.disabled(!SD.Pt.useignore) + " /> <label for=\"sdp-showignore\">Show message in current chatroom when ignoring/unignoring</label>"
-			+ "<input type=\"checkbox\" id=\"sdp-retroignore\"" + this.checked(SD.Pt.retroignore) + this.disabled(!SD.Pt.useignore) + " /> <label for=\"sdp-retroignore\">Retroactive ignore</label></p>"
-			+ "<p><label class=\"l\" for=\"sdp-ignoremsg\">Ignore message:</label> <span class=\"sdp-damnline sdp-damnlineaction\"><strong>* " + SD.he(SD.u) + "</strong> <input type=\"text\" id=\"sdp-ignoremsg\" value=\"" + SD.he(SD.Pt.ignoremsg) + "\" /></span></p>"
-			+ "<p><label class=\"l\" for=\"sdp-unignoremsg\">Unignore message:</label> <span class=\"sdp-damnline sdp-damnlineaction\"><strong>* " + SD.he(SD.u) + "</strong> <input type=\"text\" id=\"sdp-unignoremsg\" value=\"" + SD.he(SD.Pt.unignoremsg) + "\" /></span></p>"
+			+ "<input type=\"checkbox\" id=\"sdp-retroignore\"" + this.checked(SD.Pt.retroignore) + this.disabled(!SD.Pt.useignore) + " /> <label for=\"sdp-retroignore\">Retroactive ignore</label></p>"	
 			+ "<p><small>To see a list of people you ignore, type <strong>/ignore list</strong> in any chatroom. Users you have ignored are displayed as semi-transparent in a chatroom user list.</small></p>"
 			+ "<div class=\"gmbutton2town\"><a href=\"javascript://\" id=\"sdp-writeprefs\" class=\"gmbutton2 gmbutton2c\">Save preferences<b></b></a> "
 			+ "<a href=\"javascript://\" id=\"sdp-cancel\" class=\"gmbutton2 gmbutton2s\">Cancel<b></b></a> <a href=\"javascript://\" id=\"sdp-reset\" class=\"gmbutton2 gmbutton2s\">Reset<b></b></a> <small style=\"float:right\"><a target=\"_blank\" href=\"http://superdamners.deviantart.com/gallery/?24276365\" class=\"gmbutton2 gmbutton2s\">Read the SuperdAmn Manual<b></b></a></small></div></div></div></div>"
 			+ "<i class=\"gr3\"></i><i class=\"gr2\"></i><i class=\"gr1\"></i></div></div>"
 			
 			// Form events
-			function updateIgnorefields(){ superdAmn.prefs.toggledamnline(document.getElementById("sdp-ignoremsg").parentNode, (!superdAmn.Pt.showignore || !superdAmn.Pt.useignore)); superdAmn.prefs.toggledamnline(document.getElementById("sdp-unignoremsg").parentNode, (!superdAmn.Pt.showignore || !superdAmn.Pt.useignore)) }
-			updateIgnorefields()
 			superdAmn.prefs.toggledamnline(document.getElementById("sdp-beepmsg").parentNode, !superdAmn.Pt.showbeep)
 			
 			if(el = document.getElementById('sdp-showtimestamps')){		el.addEventListener("click",  function(evt){ superdAmn.Pt.timestamps   = this.checked; document.getElementById("sdp-timestyles").disabled = !superdAmn.Pt.timestamps }, false) }
@@ -2654,12 +2650,10 @@ var superdAmn = window.superdAmn = {
 			if(el = document.getElementById('sdp-customemotes')){		el.addEventListener("click",  function(evt){ superdAmn.Pt.customemotes = this.checked; document.getElementById("sdp-publicemotes").disabled = !superdAmn.Pt.customemotes; document.getElementById("sdp-pickerright").disabled = !superdAmn.Pt.customemotes }, false) }
 			if(el = document.getElementById('sdp-publicemotes')){		el.addEventListener("click",  function(evt){ superdAmn.Pt.publicemotes = this.checked }, false) }
 			if(el = document.getElementById('sdp-pickerright')){		el.addEventListener("change", function(evt){ superdAmn.Pt.pickerright  = (this.value.indexOf("on the right") > -1) }, false) }
-			if(el = document.getElementById('sdp-useignore')){			el.addEventListener("click",  function(evt){ superdAmn.Pt.useignore    = this.checked; document.getElementById("sdp-showignore").disabled = !superdAmn.Pt.useignore; document.getElementById("sdp-retroignore").disabled = !superdAmn.Pt.useignore; updateIgnorefields() }, false) }
-			if(el = document.getElementById('sdp-showignore')){			el.addEventListener("click",  function(evt){ superdAmn.Pt.showignore   = this.checked; updateIgnorefields() }, false) }
+			if(el = document.getElementById('sdp-useignore')){			el.addEventListener("click",  function(evt){ superdAmn.Pt.useignore    = this.checked; document.getElementById("sdp-showignore").disabled = !superdAmn.Pt.useignore; document.getElementById("sdp-retroignore").disabled = !superdAmn.Pt.useignore; }, false) }
+			if(el = document.getElementById('sdp-showignore')){			el.addEventListener("click",  function(evt){ superdAmn.Pt.showignore   = this.checked; }, false) }
 			if(el = document.getElementById('sdp-retroignore')){		el.addEventListener("click",  function(evt){ superdAmn.Pt.retroignore  = this.checked }, false) }
-			if(el = document.getElementById('sdp-ignoremsg')){			el.addEventListener("change", function(evt){ superdAmn.Pt.ignoremsg    = superdAmn.format.userMsgStandardize(this.value) }, false) }
-			if(el = document.getElementById('sdp-unignoremsg')){		el.addEventListener("change", function(evt){ superdAmn.Pt.unignoremsg  = superdAmn.format.userMsgStandardize(this.value) }, false) }
-			
+	
 			// Buttons
 			if(el = document.getElementById('sdp-writeprefs')){ 		el.addEventListener("click",  function(evt){ evt.preventDefault(); superdAmn.prefs.write()  }, false) }
 			if(el = document.getElementById('sdp-cancel')){ 			el.addEventListener("click",  function(evt){ evt.preventDefault(); superdAmn.prefs.cancel() }, false) }
