@@ -1091,7 +1091,7 @@ var superdAmn = window.superdAmn = {
 			}
 			chatroom_manager_onresize = function(e){
 				var h   = window.innerHeight || document.body.clientHeight
-				var ofs = document.getElementById('head') ? 62 : 50
+				var ofs = document.getElementById('head') ? 60 : 50
 				var css = (h - ofs) + "px"
 				document.getElementById("window").style.height    = css
 				document.getElementById("window").style.minHeight = css
