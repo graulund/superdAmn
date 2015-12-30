@@ -3,14 +3,14 @@
 // ==UserScript==
 // @name           SuperdAmn
 // @namespace      24bps.com
-// @description    Next generation dAmn awesomeness. Version 1.0.9.
+// @description    Next generation dAmn awesomeness. Version 1.0.10.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0.9
+// @version        1.0.10
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // ==/UserScript==
 
-// LAST UPDATED: 2015-18-11
+// LAST UPDATED: 2015-31-12
 var superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
 
 // PROLOGUE:
@@ -37,7 +37,7 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 // sumopiggy, miksago, Kiwanji, Plizzo, KnightAR, deviant-garde, Pickley
 // Thank you guys!
 
-// Copyright (c) 2009 - 2014 Andy Graulund / electricnet
+// Copyright (c) 2009 - 2015 Andy Graulund / electricnet
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -59,8 +59,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.9",
-	vd: 1447790151,
+	v:  "1.0.10",
+	vd: 1451499716,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -1062,7 +1062,7 @@ var superdAmn = window.superdAmn = {
 			}
 			chatroom_manager_onresize = function(e){
 				var h   = window.innerHeight || document.body.clientHeight
-				var ofs = document.getElementById('head') ? 60 : 50
+				var ofs = 50
 				var css = (h - ofs) + "px"
 				document.getElementById("window").style.height    = css
 				document.getElementById("window").style.minHeight = css

@@ -1,7 +1,7 @@
 {
-	"v": "1.0.9",
-	"d": 1447790151,
-	"u": "1.0.9: Fixes dAmn to resize correctly when Watch 2.0 is on. @username will now map to :devusername:. Custom ignore messages have been removed as they were being misused to abuse the person being ignored.",
+	"v": "1.0.10",
+	"d": 1451499716,
+	"u": "1.0.10: Fixes dAmn to resize correctly again...",
 	"a": [
 	]
 }
