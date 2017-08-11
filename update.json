@@ -1,7 +1,7 @@
 {
-	"v": "1.0.10",
-	"d": 1451499716,
-	"u": "1.0.10: Fixes dAmn to resize correctly again...",
+	"v": "1.0.11",
+	"d": 1502442622,
+	"u": "1.0.11: DeviantArt introduced HTTPS, breaking emotes and other features, they now work.",
 	"a": [
 	]
 }

@@ -3,9 +3,10 @@
 // @namespace      24bps.com
 // @description    Next generation dAmn awesomeness. Version 1.0.10.
 // @author         Andy Graulund <andy@graulund.com>
-// @version        1.0.10
+// @version        1.0.11
 // @include        http://chat.deviantart.com/chat/*
-// @include        http://chat.deviantart.lan/chat/*
+// @include        https://chat.deviantart.com/chat/*
+// @include        https://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
 // @grant GM_getValue
 // @grant GM_setValue
@@ -21,7 +22,7 @@ sd = freeFunctionString((function(){
 if(!("JSON" in window)){ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('3(!o.p){p={}}(5(){5 f(n){7 n<10?\'0\'+n:n}3(6 1b.z.q!==\'5\'){1b.z.q=5(h){7 o.1C()+\'-\'+f(o.1T()+1)+\'-\'+f(o.1O())+\'T\'+f(o.1D())+\':\'+f(o.1M())+\':\'+f(o.1Q())+\'Z\'};X.z.q=1K.z.q=1I.z.q=5(h){7 o.1V()}}y L=/[\\1W\\13\\1o-\\1l\\1m\\1i\\1n\\1s-\\1p\\1j-\\15\\17-\\14\\18\\1f-\\19]/g,M=/[\\\\\\"\\1B-\\1z\\1w-\\1y\\13\\1o-\\1l\\1m\\1i\\1n\\1s-\\1p\\1j-\\15\\17-\\14\\18\\1f-\\19]/g,8,H,1e={\'\\b\':\'\\\\b\',\'\\t\':\'\\\\t\',\'\\n\':\'\\\\n\',\'\\f\':\'\\\\f\',\'\\r\':\'\\\\r\',\'"\':\'\\\\"\',\'\\\\\':\'\\\\\\\\\'},l;5 N(m){M.1h=0;7 M.11(m)?\'"\'+m.C(M,5(a){y c=1e[a];7 6 c===\'m\'?c:\'\\\\u\'+(\'1k\'+a.1r(0).12(16)).1g(-4)})+\'"\':\'"\'+m+\'"\'}5 E(h,w){y i,k,v,e,K=8,9,2=w[h];3(2&&6 2===\'x\'&&6 2.q===\'5\'){2=2.q(h)}3(6 l===\'5\'){2=l.P(w,h,2)}1u(6 2){J\'m\':7 N(2);J\'S\':7 1v(2)?X(2):\'D\';J\'1x\':J\'D\':7 X(2);J\'x\':3(!2){7\'D\'}8+=H;9=[];3(Q.z.12.1S(2)===\'[x 1R]\'){e=2.e;G(i=0;i<e;i+=1){9[i]=E(i,2)||\'D\'}v=9.e===0?\'[]\':8?\'[\\n\'+8+9.O(\',\\n\'+8)+\'\\n\'+K+\']\':\'[\'+9.O(\',\')+\']\';8=K;7 v}3(l&&6 l===\'x\'){e=l.e;G(i=0;i<e;i+=1){k=l[i];3(6 k===\'m\'){v=E(k,2);3(v){9.1c(N(k)+(8?\': \':\':\')+v)}}}}R{G(k 1t 2){3(Q.1q.P(2,k)){v=E(k,2);3(v){9.1c(N(k)+(8?\': \':\':\')+v)}}}}v=9.e===0?\'{}\':8?\'{\\n\'+8+9.O(\',\\n\'+8)+\'\\n\'+K+\'}\':\'{\'+9.O(\',\')+\'}\';8=K;7 v}}3(6 p.W!==\'5\'){p.W=5(2,A,I){y i;8=\'\';H=\'\';3(6 I===\'S\'){G(i=0;i<I;i+=1){H+=\' \'}}R 3(6 I===\'m\'){H=I}l=A;3(A&&6 A!==\'5\'&&(6 A!==\'x\'||6 A.e!==\'S\')){1a 1d 1E(\'p.W\')}7 E(\'\',{\'\':2})}}3(6 p.Y!==\'5\'){p.Y=5(B,U){y j;5 V(w,h){y k,v,2=w[h];3(2&&6 2===\'x\'){G(k 1t 2){3(Q.1q.P(2,k)){v=V(2,k);3(v!==1L){2[k]=v}R{1J 2[k]}}}}7 U.P(w,h,2)}L.1h=0;3(L.11(B)){B=B.C(L,5(a){7\'\\\\u\'+(\'1k\'+a.1r(0).12(16)).1g(-4)})}3(/^[\\],:{}\\s]*$/.11(B.C(/\\\\(?:["\\\\\\/1G]|u[0-1X-1U-F]{4})/g,\'@\').C(/"[^"\\\\\\n\\r]*"|1A|1P|D|-?\\d+(?:\\.\\d*)?(?:[1N][+\\-]?\\d+)?/g,\']\').C(/(?:^|:|,)(?:\\s*\\[)+/g,\'\'))){j=1F(\'(\'+B+\')\');7 6 U===\'5\'?V({\'\':j},\'\'):j}1a 1d 1H(\'p.Y\')}}}());',62,122,'||value|if||function|typeof|return|gap|partial|||||length|||key||||rep|string||this|JSON|toJSON||||||holder|object|var|prototype|replacer|text|replace|null|str||for|indent|space|case|mind|cx|escapable|quote|join|call|Object|else|number||reviver|walk|stringify|String|parse|||test|toString|u00ad|u206f|u202f||u2060|ufeff|uffff|throw|Date|push|new|meta|ufff0|slice|lastIndex|u17b4|u2028|0000|u0604|u070f|u17b5|u0600|u200f|hasOwnProperty|charCodeAt|u200c|in|switch|isFinite|x7f|boolean|x9f|x1f|true|x00|getUTCFullYear|getUTCHours|Error|eval|bfnrt|SyntaxError|Boolean|delete|Number|undefined|getUTCMinutes|eE|getUTCDate|false|getUTCSeconds|Array|apply|getUTCMonth|fA|valueOf|u0000|9a'.split('|'),0,{})) }
 // XPATH madness goes here -- Based upon the $x in Firebug, modified by Zikes
 function $x(xpath,root){var got=document.evaluate(xpath,root||document,null,null,null),result=[];while(next=got.iterateNext())result.push(next);return result;}
-// RegExp escape madness goes here -- By Simon Willison: http://simonwillison.net/2006/Jan/20/escape/
+// RegExp escape madness goes here -- By Simon Willison: https://simonwillison.net/2006/Jan/20/escape/
 RegExp.escape=function(a){if(!arguments.callee.sRE){var b=["/",".","*","+","?","|","(",")","[","]","{","}","\\"];arguments.callee.sRE=new RegExp("(\\"+b.join("|\\")+")","g")}return a.replace(arguments.callee.sRE,"\\$1")}
 // If we're using Firefox, we must assume "real" Greasemonkey
 var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(firefox|iceweasel)/i)
@@ -61,8 +62,8 @@ var superdAmn_GM = window.superdAmn_GM = !!window.navigator.userAgent.match(/(fi
 
 var superdAmn = window.superdAmn = {
 	// Variables being initialized
-	v:  "1.0.10",
-	vd: 1447790151,
+	v:  "1.0.11",
+	vd: 1502442622,
 	imgs: new Array(
 		/* Brighter faded background*/	"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUSMftzTEBADAIAKDZP9Ry6G0QY+gBBYjq/G9JyOVyuVwul8vlcrlcfiYfH9RnijOp+oUAAAAASUVORK5CYII=",
 		/* Preferences icon */			"data:image/gif;base64,R0lGODlhEAAQAJEAAJifm3CGdmZwbzJAQSH5BAEHAAEALAAAAAAQABAAAAIyjD2px6G/GJzjPAESEA8pkA1gB41iSJ2gmWIrlyYuHGtofVJOeSfew4rsag1i4yc0FAAAOw==",
@@ -92,9 +93,9 @@ var superdAmn = window.superdAmn = {
 				+ ".damncr .gr-box { margin: 0.4em 0.7em; } .damncr .gr-box h2 { font-size: 15px; } .damncr .gr-box .gr-top .gr { padding-bottom: 1px; } .damncr-members { padding-right: 20px; } .damncr-members dl dd { white-space: nowrap; }\n"
 				+ ".damncrc-chat-window a.lit, .damncrc-topic a.lit, .damncr-title a.lit { text-decoration: none !important; font-style: normal; font-weight: normal; font-variant: normal; } .damncr span.sdltt { height: 133px; display: inline-block; } .damncr span.ffc, .damncr dd.ffc { cursor: pointer; }\n"
 				+ ".damncr .gr-box .gr-body .gr { padding: 2px 8px; } .damncr .gr-box .superdamnlist { margin: 2px 0; } .damncr .gr-box p { margin: 5px 0; } .gr-box p.nt { margin-top: 0; } .damncr .gr-box p.nt { margin-top: 2px; }\n"
-				+ ".gr-top a.sdmclose { position: static; float: right; margin: 6px 8px 0 0; width: 15px; height: 15px; background: transparent url(http://st.deviantart.com/minish/messages/close-message.gif) no-repeat 0 0; } .gr-top small.version { float: right; text-align: right; margin: .65em 1.3em 0 0; }\n"
+				+ ".gr-top a.sdmclose { position: static; float: right; margin: 6px 8px 0 0; width: 15px; height: 15px; background: transparent url(https://st.deviantart.com/minish/messages/close-message.gif) no-repeat 0 0; } .gr-top small.version { float: right; text-align: right; margin: .65em 1.3em 0 0; }\n"
 				+ ".damncr .gr-top a.sdmclose { margin-top: 4px; } .gr-top a.sdmclose:hover { background-position: -60px 0; } .gr-top a.sdmclose:active { background-position: -75px 0; } .damncri-member { white-space: normal; } .damncri-member .superdamner { color: #728776; }\n"
-				+ ".damncrc-iconbar .away { background: #ffc url(http://st.deviantart.com/minish/gruzecontrol/icons/devmeet.gif) no-repeat 1px 1px; border: 1px solid #bb9; padding: 1px 4px 1px 20px; margin: 0 5px; display: block; float: left; line-height: 1.4em; overflow: hidden; white-space: nowrap; } .damncrc-iconbar .away .t { color: #9c9e84; } .damncrc-alertbox a { text-decoration: underline; }\n"
+				+ ".damncrc-iconbar .away { background: #ffc url(https://st.deviantart.com/minish/gruzecontrol/icons/devmeet.gif) no-repeat 1px 1px; border: 1px solid #bb9; padding: 1px 4px 1px 20px; margin: 0 5px; display: block; float: left; line-height: 1.4em; overflow: hidden; white-space: nowrap; } .damncrc-iconbar .away .t { color: #9c9e84; } .damncrc-alertbox a { text-decoration: underline; }\n"
 				+ (($x("//div[@class='damntcf-preload']").length <= 0) ? ".damnc-tabbar { padding-top: 1px; } .damnc-tabbar strong, .damnc-tabbar a { background: transparent url(" + this.imgs[4] + ") no-repeat 0 -110px !important; } .damnc-tabbar strong:not(.withX), .damnc-tabbar a { padding-right: 5px !important; } .damnc-tabbar strong { background-position: 0 0 !important; } .damnc-tabbar a.disconnected { color: #728776 !important; }\n"
 				+ ".damnc-tabbar strong i, .damnc-tabbar a i { background: transparent url(" + this.imgs[4] + ") no-repeat 100% -110px !important; } .damnc-tabbar strong i { background-position: 100% 0 !important; } #superdamnov .damnc-tabbar a { color: #2c3635; }\n"
 				+ ".damnc-tabbar strong.sdt-hl, .damnc-tabbar a.sdt-hl, .damnc-tabbar strong.sdt-hl i, .damnc-tabbar a.sdt-hl i, #superdamnov a.sdt-hl { background-image: url(" + this.imgs[5] + ") !important; font-weight: bold; color: #b64242; }\n"
@@ -117,7 +118,7 @@ var superdAmn = window.superdAmn = {
 				+ "#superdamnov .damnc-tabbar { float: right; border: 1px solid #607466; background-color: #728776; padding-right: 8px; padding-top: 5px; margin-top: 5px; }\n"
 				+ ".superdamnlist { border: 1px solid #b4bdb4; color: #57625c; list-style-position: inside; max-height: 18em; overflow: auto; padding: 0; } .superdamnlistbox { height: 12em; }\n"
 				+ ".superdamnlist li { position: relative; padding: 4px 10px; font-size: 90%; } .damncr .superdamnlist li { font-size: 100%; } .superdamnlist li strong { color: #241b1e; }\n"
-				+ ".superdamnlist li a.remove { display: none; width: 15px; height: 15px; background: transparent url(http://st.deviantart.com/styles/minimal/minish/close-ad.gif) no-repeat 0 -15px; text-indent: -9999px; position: absolute; top: 4px; right: 10px; }\n"
+				+ ".superdamnlist li a.remove { display: none; width: 15px; height: 15px; background: transparent url(https://st.deviantart.com/styles/minimal/minish/close-ad.gif) no-repeat 0 -15px; text-indent: -9999px; position: absolute; top: 4px; right: 10px; }\n"
 				+ ".superdamnlist li.even { background-color: #cfd9cf; } .superdamnlist li.hint { color: #dae4d9; margin: 1.5em 0; } .damncr .superdamnlist li.hint { margin: .5em 0; } .superdamnlist li.hint em { color: #6c7977; } .superdamnhint { font-size: 90%; color: #6c7977; } .damncr .superdamnhint { font-size: 100%; }\n"
 				+ ".superdamnlist li a.tofield, #superdamnemotes li a.tofield { display: none; background: #dae4d9 url(" + this.imgs[3] + ") no-repeat right center; color: #6c7977; position: absolute; top: 3px; right: 10px; padding: 0 16px 1px 7px; } .superdamnlist li.even a.tofield { background-color: #cfd9cf; }\n"
 				+ ".superdamnlist li:hover a.remove, .superdamnlist li:hover a.tofield, #superdamnemotes li:hover a.tofield, #superdamnemotes li:hover a.viewdev, #superdamnemotes li:hover a.remove { display: block; }\n"
@@ -126,27 +127,27 @@ var superdAmn = window.superdAmn = {
 				+ ".superdamnbutton.underline { background-image: url(" + this.imgs[10] + "); } .superdamnbutton.link { background-image: url(" + this.imgs[11] + "); } .superdamnbutton.thumb { background-image: url(" + this.imgs[12] + "); } .superdamnbutton.thumb.alt { background-image: url(" + this.imgs[13] + "); }\n"
 				+ ".superdamnbutton.code { background-image: url(" + this.imgs[14] + "); } .superdamnbutton.code.alt { background-image: url(" + this.imgs[15] + "); } .superdamnbutton.superscript { background-image: url(" + this.imgs[16] + "); } .superdamnbutton.subscript { background-image: url(" + this.imgs[17] + "); }\n"
 				+ ".superdamnbutton.website { background-image: url(" + this.imgs[18] + "); width: 17px; } .superdamnbutton.multiline { background-image: url(" + this.imgs[19] + "); margin-right: 1em; } .superdamnbutton.emotes { background-image: url(" + this.imgs[20] + "); width: 22px; margin-right: 1em; }\n"
-				+ "#superdamnemotes { position: absolute; border: 1px solid #98ae9d; border-width: 1px 1px 0; background-color: #d0d9cf; z-index: 20; padding: 3px 7px 0; } #superdamnemotes .close, #superdamnmessage .close { float: right; display: block; width: 12px; height: 12px; margin: 4px 0 0 10px; background: transparent url(http://s.deviantart.com/minish/chat/closebig.gif) no-repeat -4px -4px; }\n"
+				+ "#superdamnemotes { position: absolute; border: 1px solid #98ae9d; border-width: 1px 1px 0; background-color: #d0d9cf; z-index: 20; padding: 3px 7px 0; } #superdamnemotes .close, #superdamnmessage .close { float: right; display: block; width: 12px; height: 12px; margin: 4px 0 0 10px; background: transparent url(https://s.deviantart.com/minish/chat/closebig.gif) no-repeat -4px -4px; }\n"
 				+ "#superdamnemotes h3 { float: left; } #superdamnemotes .toplinks { font-size: 11px; margin: 0 8px; position: relative; top: 4px; } #superdamnemotes a { color: #40534a; text-decoration: underline; }\n"
 				+ "#superdamnemotes ul.browse { clear: both; border: 1px solid #98ae9d; background-color: #f7f7f7; max-height: 19em; overflow: auto; font-size: 11px; list-style-type: none; padding: 0 0 5px; margin: 0; width: 319px; }\n"
 				+ "#superdamnemotes ul.browse li { border-bottom: 1px solid #ccc; padding: 2px 7px; position: relative; } #superdamnemotes ul li.h { font-weight: bold; background-color: #eee; }\n"
 				+ "#superdamnemotes ul.browse li .votes { position: absolute; right: 45px; z-index: 21; color: #999; } #superdamnemotes li .voteb, #superdamnemotes ul li .img { display: none; font-weight: bold; } #superdamnemotes li .voteb a { color: #6c7977; text-decoration: none; } #superdamnemotes li:hover .voteb { display: inline; }\n"
 				+ "#superdamnemotes ul.browse li.disabled { color: #728776; font-style: italic; } #superdamnemotes ul.browse li.hint { color: #728776; font-style: italic; margin: 1.5em 0; border-width: 0; text-align: center; }\n"
-				+ "#superdamnemotes ul.browse li.loading { background: transparent url(http://e.deviantart.net/emoticons/e/eager.gif) no-repeat 3px 2px; padding-left: 22px; }\n"
+				+ "#superdamnemotes ul.browse li.loading { background: transparent url(https://e.deviantart.net/emoticons/e/eager.gif) no-repeat 3px 2px; padding-left: 22px; }\n"
 				+ "#superdamnemotes ul.letters { clear: both; list-style-type: none; padding: 0; margin: 0 0 0 8px; color: #728776; font-size: 11px; } #superdamnemotes ul.letters li { float: left; margin: 0 .3em .3em 0; cursor: pointer; } #superdamnemotes ul.letters li:hover { color: #40534a; }\n"
 				+ "#superdamnemotes ul.letters li.selected { background-color: #98ae9d; font-weight: bold; color: #000; padding: 0 3px .3em; margin-bottom: 0; cursor: auto; } #superdamnemotes ul.letters li.selected:hover { color: #000; }\n"
 				+ "#superdamnemotes li a.tofield { width: 16px; height: 16px; padding: 0; top: 1px; right: 6px; background-color: transparent; } #superdamnemotes li.disabled a.tofield { display: none !important; }\n"
 				+ "#superdamnemotes li a.viewdev { width: 12px; height: 7px; position: absolute; top: 6px; right: 23px; background: transparent url(" + this.imgs[7] + ") no-repeat; display: none; }\n"
 				+ "#superdamnemotes li a.remove { width: 8px; height: 8px; position: absolute; top: 6px; right: 45px; background: transparent url(" + this.imgs[22] + ") no-repeat; display: none; }\n"
 				+ "#superdamnemotes form { clear: both; border: 1px solid #98ae9d; padding: 8px 10px; font-size: 11px; color: #728776; width: 299px; margin: 0 0 10px; } #superdamnemotes #sde-addemf { margin: 0; } #superdamnemotes #sde-searchf input { margin: 4px 0 0; width: 293px; }\n"
-				+ "#superdamnemotes form p label.l { float: left; width: 10em; margin: 0; color: #40534a; font-weight: bold; } #superdamnemotes form p.input { border: 1px solid #98ae9d; border-width: 1px 0; padding: 10px 0; } #superdamnemotes form p.loading { background: transparent url(http://e.deviantart.net/emoticons/e/eager.gif) no-repeat right center; }\n"
+				+ "#superdamnemotes form p label.l { float: left; width: 10em; margin: 0; color: #40534a; font-weight: bold; } #superdamnemotes form p.input { border: 1px solid #98ae9d; border-width: 1px 0; padding: 10px 0; } #superdamnemotes form p.loading { background: transparent url(https://e.deviantart.net/emoticons/e/eager.gif) no-repeat right center; }\n"
 				+ "#superdamnemotes form p label.l select { background-color: #d0d9cf; border-width: 0; padding: 0 5px 0 0; margin: 0; font-family: Verdana, Tahoma, sans-serif; font-size: 11px; font-weight: bold; color: #40534a; } #superdamnemotes form p label.l select.disabled { color: #838a85; text-shadow: -1px -1px 0 #f7f7f7; }\n"
-				+ "#superdamnemotes form input.loading { background-image: url(http://e.deviantart.net/emoticons/e/eager.gif); background-repeat: no-repeat; background-position: right center; }\n"
-				+ "#superdamnemotes .bottom { text-align: right; font-size: 11px; margin: .2em 0; } #superdamnemotes .bottom span { float: left; } #superdamnemotes .bottom a.loading, .superdamn-topicer .meta div.loading { background: transparent url(http://e.deviantart.net/emoticons/e/eager.gif) no-repeat left center; padding-left: 20px; }\n"
+				+ "#superdamnemotes form input.loading { background-image: url(https://e.deviantart.net/emoticons/e/eager.gif); background-repeat: no-repeat; background-position: right center; }\n"
+				+ "#superdamnemotes .bottom { text-align: right; font-size: 11px; margin: .2em 0; } #superdamnemotes .bottom span { float: left; } #superdamnemotes .bottom a.loading, .superdamn-topicer .meta div.loading { background: transparent url(https://e.deviantart.net/emoticons/e/eager.gif) no-repeat left center; padding-left: 20px; }\n"
 				+ "#superdamnempreview { border: 1px solid #98ae9d; background-color: #dce7dc; padding: 3px; position: absolute; z-index: 40; } #superdamnempreview img { max-width: 100px; max-height: 100px; }\n"
 				+ "#superdamnmessage { position: absolute; top: 10px; right: 10px; background-color: #728776; border: 1px solid #313f3a; color: #fff; padding: 2px 7px; max-width: 35%; opacity: .8; z-index: 900; font-size: 11px; }\n"
 				+ "#superdamnmessage.yay { background-color: #090; border-color: #060; } #superdamnmessage.nay { background-color: #900; border-color: #600; } #superdamnmessage a { color: inherit; } #superdamnmessage a.download { text-decoration: underline; }\n"
-				+ ".damncr-title .superdamn-editbutton, .damncrc-topic .superdamn-editbutton { display: none; position: absolute; top: 2px; right: 2px; width: 22px; height: 20px; cursor: pointer; background: transparent url(http://st.deviantart.net/minish/gruzecontrol/astro-megazord.png) no-repeat; background-position: 0 0; }\n"
+				+ ".damncr-title .superdamn-editbutton, .damncrc-topic .superdamn-editbutton { display: none; position: absolute; top: 2px; right: 2px; width: 22px; height: 20px; cursor: pointer; background: transparent url(https://st.deviantart.net/minish/gruzecontrol/astro-megazord.png) no-repeat; background-position: 0 0; }\n"
 				+ ".damncr-title:hover .superdamn-editbutton, .damncrc-topic:hover .superdamn-editbutton { display: block; } .superdamn-editbutton:hover { background-position: 0 -27px !important; }\n"
 				+ ".superdamn-topicer textarea { width: 100%; } .superdamn-topicer .meta { background-color: #bbc6b9; padding: 2px 5px 5px; position: relative; overflow: hidden; } .damncrc-topic .superdamn-topicer .meta { background-color: #9eaea0; }\n"
 				+ ".superdamn-topicer .meta span { position: relative; top: 2px; z-index: 20; background-color: inherit; } .superdamn-topicer .meta div { position: absolute; top: 2px; right: 5px; z-index: 19; }\n"
@@ -189,7 +190,7 @@ var superdAmn = window.superdAmn = {
 	// Utility functions
 	addstyle: function(str, id){ var el = document.createElement("style"); el.type = "text/css"; el.className = id ? id : "superdamnstyles"; el.appendChild(document.createTextNode(str)); document.getElementsByTagName("head")[0].appendChild(el) },
 	pad:      function(int){ if(int < 10){ return "0" + int } return int },
-	oc:       function(a){ var o = {}; for(var i=0;i<a.length;i++){ o[a[i]] = ""; } return o }, // Converting an array to an object literal; from http://snook.ca/archives/javascript/testing_for_a_v/
+	oc:       function(a){ var o = {}; for(var i=0;i<a.length;i++){ o[a[i]] = ""; } return o }, // Converting an array to an object literal; from https://snook.ca/archives/javascript/testing_for_a_v/
 	ocl:      function(a){ var o = {}; for(var i=0;i<a.length;i++){ o[a[i].toLowerCase()] = ""; } return o }, // Same as above, but lowercase'd
 	he:       function(str){ return str.toString().replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;") }, // Special HTML chars encode
 	re:       function(str){ return str.toString().replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&") }, // Special HTML chars decode
@@ -200,10 +201,10 @@ var superdAmn = window.superdAmn = {
 	oe:       function(obj){ return (this.ol(obj) <= 0) }, // Whether object is empty (e.g. {})
 	ia:       function(a){ return !!(a && a.constructor == Array) }, // Whether argument is an array
 	time:     function(){ return ((new Date()).getTime()) / 1000 }, // Unixtime
-	trim:     function(str){ return str.replace(/^\s+|\s+$/g,"") }, // Thanks to http://www.somacon.com/p355.php
+	trim:     function(str){ return str.replace(/^\s+|\s+$/g,"") }, // Thanks to https://www.somacon.com/p355.php
 	ltrim:    function(str){ return str.replace(/^\s+/,"") },
 	rtrim:    function(str){ return str.replace(/\s+$/,"") },
-	explode:  function(str, del, lim){ var s = str.toString().split(del.toString()); var a = s.splice(0, lim); var b = s.join(del.toString()); a.push(b); return a }, // Kudos to PHP-JS; http://phpjs.org/functions/explode
+	explode:  function(str, del, lim){ var s = str.toString().split(del.toString()); var a = s.splice(0, lim); var b = s.join(del.toString()); a.push(b); return a }, // Kudos to PHP-JS; https://phpjs.org/functions/explode
 	reason:   function(str, r){ r = r ? r : "reason"; return str ? str : "(No " + r + ")" },
 	numeric:  function(str){ return !!str.match(/^[0-9]+$/) }, // Is string numeric? (e.g. an int in a string)
 	oconcat:  function(obj1, obj2){ for(var p in obj2){ obj1[p] = obj2[p] } return obj1 }, // Concat with property:value objects (overwriting)
@@ -360,14 +361,14 @@ var superdAmn = window.superdAmn = {
 							var d = new Date()
 							d.setTime(SD.P.ignores[u]*1000)
 							html += "<li" + ((i++ % 2) ? " class=\"even\"" : "") + ">"
-							html += "<strong><a target=\"_blank\" href=\"http://" + SD.he(u) + ".deviantart.com/\">" + SD.he(u) + "</a></strong> "
+							html += "<strong><a target=\"_blank\" href=\"https://" + SD.he(u) + ".deviantart.com/\">" + SD.he(u) + "</a></strong> "
 							html += "<small>at " + d.toLocaleString() + "</small> "
 							html += "<a class=\"remove\" id=\"sdp-unignore-" + SD.he(u) + "\" href=\"javascript://\" title=\"Unignore this user\">Unignore</a>"
 							html += "</li>" 
 						}
 						html += "</ol>"
 					}
-					b   = SD.dAmn.makebox(ns, "<i class=\"sdbicon\" style=\"background:transparent url(http://st.deviantart.net/minish/gruzecontrol/icons-gruser.gif) no-repeat -963px -3px\"></i> Ignore List", html)
+					b   = SD.dAmn.makebox(ns, "<i class=\"sdbicon\" style=\"background:transparent url(https://st.deviantart.net/minish/gruzecontrol/icons-gruser.gif) no-repeat -963px -3px\"></i> Ignore List", html)
 					rms = $x(".//a[@class='remove']", b)
 					if(rms.length > 0){
 						Array.prototype.forEach.call(rms, function(el){
@@ -444,7 +445,7 @@ var superdAmn = window.superdAmn = {
 				ti.setTime(dAmnChats[ns].SD[t + "_el_ts"] * 1000)
 				setTimeout(function(){
 					MiddleMan.Interface.setInputText(ns, "/" + t + " " + dAmnChats[ns].SD[t + "_el_orig"])
-					SD.notice(t + " info: Set by <a href=\"http://" + by.toLowerCase() + ".deviantart.com/\" target=\"_blank\">" + SD.he(by) + "</a> on <em>" + ti.toLocaleString() + "</em>")
+					SD.notice(t + " info: Set by <a href=\"https://" + by.toLowerCase() + ".deviantart.com/\" target=\"_blank\">" + SD.he(by) + "</a> on <em>" + ti.toLocaleString() + "</em>")
 				}, 100) // This is retarded with a big R. Damn you, MM.
 			} else {
 				SD.error("get" + t, "Could not retrieve the " + t + " source. You can <a href=\"javascript://\" onclick=\"superdAmn.dAmn.reloadTopicTitle(dAmnChatTab_active);return false\">click here</a> to try to reload topic and title, then try again.")
@@ -466,26 +467,26 @@ var superdAmn = window.superdAmn = {
 		faqsearch: function(args){
 			var SD = superdAmn
 			var ns = dAmnChatTab_active
-			jQuery.getJSON("http://temple.24bps.com/superdamn/faqsearch.php?q=" + encodeURIComponent(args) + "&jsoncallback=?&" + (new Date()).getDay(),
+			jQuery.getJSON("https://temple.24bps.com/superdamn/faqsearch.php?q=" + encodeURIComponent(args) + "&jsoncallback=?&" + (new Date()).getDay(),
 				function(data){
 					var html = "<p class=\"nt\">"
 					if(!data || (data.length && data.length == 0) || SD.oe(data)){
-						html += "Search results for <strong>" + SD.he(args) + "</strong> in the <a href=\"http://help.deviantart.com/\">FAQ</a>:</p><ol class=\"superdamnlist\">"
+						html += "Search results for <strong>" + SD.he(args) + "</strong> in the <a href=\"https://help.deviantart.com/\">FAQ</a>:</p><ol class=\"superdamnlist\">"
 						html += "<li class=\"hint\"><em>No results! Sorry!</em></li>"
 					} else {
 						r = SD.ol(data)
-						html += "We found <strong>" + r + "</strong> search result" + (r == 1 ? "" : "s") + " for <strong>" + SD.he(args) + "</strong> in the <a href=\"http://help.deviantart.com/\">FAQ</a>:</p><ol class=\"superdamnlist\">"
+						html += "We found <strong>" + r + "</strong> search result" + (r == 1 ? "" : "s") + " for <strong>" + SD.he(args) + "</strong> in the <a href=\"https://help.deviantart.com/\">FAQ</a>:</p><ol class=\"superdamnlist\">"
 						var i = 1
 						for(var id in data){
 							html += "<li" + ((i++ % 2) ? " class=\"even\"" : "") + ">"
-							html += "<strong>FAQ #" + SD.he(id) + ":</strong> <a href=\"http://help.deviantart.com/" + SD.he(id) + "/\">" + SD.he(data[id].question) + "</a> "
-							html += "<small>in <a href=\"http://help.deviantart.com/" + SD.he(data[id].catpath) +  "/\">" + SD.he(data[id].category) + "</a></small> "
+							html += "<strong>FAQ #" + SD.he(id) + ":</strong> <a href=\"https://help.deviantart.com/" + SD.he(id) + "/\">" + SD.he(data[id].question) + "</a> "
+							html += "<small>in <a href=\"https://help.deviantart.com/" + SD.he(data[id].catpath) +  "/\">" + SD.he(data[id].category) + "</a></small> "
 							html += "<a class=\"tofield\" id=\"sdf-tofield-" + SD.he(id) + "\" href=\"javascript://\">Add code to text field</a>"
 							html += "</li>\n"
 						}
 					}
 					html += "</ol>"
-					b     = SD.dAmn.makebox(ns, "<span class=\"sdbicon\" style=\"background:transparent url(http://st.deviantart.net/minish/main/icons6.gif) no-repeat -812px -92px\"></span> FAQ Search Results", html)
+					b     = SD.dAmn.makebox(ns, "<span class=\"sdbicon\" style=\"background:transparent url(https://st.deviantart.net/minish/main/icons6.gif) no-repeat -812px -92px\"></span> FAQ Search Results", html)
 					tfs   = $x(".//a[@class='tofield']", b)
 					if(tfs.length > 0){
 						Array.prototype.forEach.call(tfs, function(el){
@@ -1330,7 +1331,7 @@ var superdAmn = window.superdAmn = {
 					var title   = (m[2] == "you") ? superdAmn.strrev(m[2]) : m[2]
 					var tooltip = title + ", " + m[3] // S
                     var wh      = m[3].split("x") // D
-                    var url     = "http://www.deviantart.com/art/" + deviation_url_title(title) + "-" + id
+                    var url     = "https://www.deviantart.com/art/" + deviation_url_title(title) + "-" + id
                     var flags   = m[6].split(":") // C
                     var file    = (m[3] == "you") ? superdAmn.strrev(m[6]) : m[6] // Q
                     
@@ -1365,7 +1366,7 @@ var superdAmn = window.superdAmn = {
 						pr = str.substr(0, a.index)
 						su = str.substr(a.index + a[1].length)
 						if(item){ // We found one! Let's apply it
-							str = pr + "<strong>FAQ #" + item.id + ": </strong> <a href=\"http://help.deviantart.com/" + item.id + "/\">" + item.question + "</a>" + su
+							str = pr + "<strong>FAQ #" + item.id + ": </strong> <a href=\"https://help.deviantart.com/" + item.id + "/\">" + item.question + "</a>" + su
 						} else { // We did not! Let's make sure the code doesn't turn into something weird
 							str = pr + ":faq<b></b>" + a[2] + ":" + su
 						}
@@ -1376,9 +1377,9 @@ var superdAmn = window.superdAmn = {
 				str = str.replace(/^@([A-Za-z0-9_]+)$/g, ":dev$1:")
 
 				// Correcting special display-styles for system user accounts +help and +faq
-				str = str.replace(/:devhelp:/g,"<a href=\"http://help.deviantart.com/contact\">Help Desk</a>")
-				str = str.replace(/:devhelpdesk:/g,"<a href=\"http://help.deviantart.com/contact\">Help Desk</a>")
-				str = str.replace(/:devfaq:/g, "<a href=\"http://help.deviantart.com/\">FAQ</a>")
+				str = str.replace(/:devhelp:/g,"<a href=\"https://help.deviantart.com/contact\">Help Desk</a>")
+				str = str.replace(/:devhelpdesk:/g,"<a href=\"https://help.deviantart.com/contact\">Help Desk</a>")
+				str = str.replace(/:devfaq:/g, "<a href=\"https://help.deviantart.com/\">FAQ</a>")
 				// Custom emotes
 				str = SD.emotes.add(str)
 			} catch(e) {
@@ -1391,7 +1392,7 @@ var superdAmn = window.superdAmn = {
 		applyrecvextras: function(node){
 			if(typeof node == "string"){ s = node; node = document.createElement("span"); node.innerHTML = s }
 			try {
-				var cl = $x(".//a[starts-with(@href,'http://chat.deviantart.com/chat/')]", node)
+				var cl = $x(".//a[starts-with(@href,'https://chat.deviantart.com/chat/')]", node)
 				if(cl.length > 0){ Array.prototype.forEach.call(cl, function(el){
 					var r = el.href.substr(el.href.lastIndexOf("/")+1)
 					if(r != ""){
@@ -1477,7 +1478,7 @@ var superdAmn = window.superdAmn = {
 						i.onmousedown = function(evt){ evt.stopPropagation() } // Keep focus
 						i.onmouseup   = function(evt){ evt.stopPropagation() }
 						// Displaying info and appending to element
-						var info      = t + " info: Set by <a href=\"http://" + by.toLowerCase() + ".deviantart.com/\" target=\"_blank\">" + SD.he(by) + "</a> on <em>" + ti.toLocaleString() + "</em>"
+						var info      = t + " info: Set by <a href=\"https://" + by.toLowerCase() + ".deviantart.com/\" target=\"_blank\">" + SD.he(by) + "</a> on <em>" + ti.toLocaleString() + "</em>"
 						m.innerHTML   = "<span>" + info.replace(/(title|topic) info:/, "<strong>$1 info:</strong>") + "</span>&nbsp;"
 						a.chatel      = dAmnChats[ns]
 						m.appendChild(b)
@@ -1673,7 +1674,7 @@ var superdAmn = window.superdAmn = {
 	
 	// CUSTOM EMOTES ------------------------------------
 	emotes: {
-		host: "http://www.thezikes.org",
+		host: "https://damnchats.herokuapp.com/",
 		ems:  "",
 		// INIT: Initializes the "structured" emote objects and fetches emotes
 		init: function(){
@@ -1691,7 +1692,7 @@ var superdAmn = window.superdAmn = {
 			// Requires jQuery
 			var SD = superdAmn
 			if(SD.P.publicemotes){
-				jQuery.getJSON(this.host + "/publicemotes.php?format=jsonp&jsoncallback=?&" + (new Date()).getDay(), function(data){
+				jQuery.getJSON(this.host + "/emotes?format=jsonp&jsoncallback=?&" + (new Date()).getDay(), function(data){
 					superdAmn.pe = data
 					superdAmn.emotes.spe()
 					superdAmn.emotes.picker.generate()
@@ -1802,10 +1803,10 @@ var superdAmn = window.superdAmn = {
 							+ (superdAmn_GM ? "<br />If adding to the public database, it is required that the code is enclosed in colons like <strong>:this:</strong>." : "") + "</p>"
 							+ "<p class=\"input\" style=\"margin-top:0\"><label class=\"l\"><select id=\"sdea-devidtype\"><option id=\"sdea-dtdevid\" selected=\"selected\">Deviation ID:</option><option>Code:</option></select> </label><input type=\"text\" id=\"sdea-devid\" /></p>"
 							+ "<p><input type=\"submit\" style=\"font-weight:bold\" value=\"Add\" /> <select id=\"sdea-type\"" + SD.prefs.disabled(!SD.P.publicemotes || !superdAmn_GM) + "><option id=\"sdea-tpersonal\"" + SD.prefs.selected(!SD.P.publicemotes || !superdAmn_GM) + ">to my own emotes list</option><option>to the public emote database</option></select></p>"
-							+ (superdAmn_GM ? "<div>When adding to the database, it is suggested that you search for the code first to see if your suggestion already exists.</div>" : "<div>It&#8217;s not possible to submit directly to the database using a non-Firefox browser. Please go to the site to <strong><a href=\"http://thezikes.org/emotecloud/add.php\">vote on and submit public emotes</a></strong></div>") + "</form>"
+							+ (superdAmn_GM ? "<div>When adding to the database, it is suggested that you search for the code first to see if your suggestion already exists.</div>" : "<div>It&#8217;s not possible to submit directly to the database using a non-Firefox browser. Please go to the site to <strong><a href=\"https://thezikes.org/emotecloud/add.php\">vote on and submit public emotes</a></strong></div>") + "</form>"
 				html  += "<div id=\"sde-browser\"><form id=\"sde-searchf\" action=\"" + SD.emotes.host + "/search.php\" method=\"get\" style=\"display:none\"><div>This will search for emote/code combinations already in our emote database. If you see emotes that are not in our database, click &#8220;Add&#8221; above.</div><input type=\"text\" value=\"Enter an emote code...\" /></form>"
 				html  += "<ul class=\"letters\"><li>A</li><li>B</li><li>C</li><li>D</li><li>E</li><li>F</li><li>G</li><li>H</li><li>I</li><li>J</li><li>K</li><li>L</li><li>M</li><li>N</li><li>O</li><li>P</li><li>Q</li><li>R</li><li>S</li><li>T</li><li>U</li><li>V</li><li>W</li><li>X</li><li>Y</li><li>Z</li><li title=\"Emotes that do not start with a letter\">#</li>" + (SD.P.publicemotes ? "<li title=\"Emotes that you voted up\" style=\"margin-right:0\">&#x2605;</li>" : "") + "</ul>"
-				html  += "<ul class=\"browse\"><li>Loading...</li></ul><div class=\"bottom\">" + (SD.P.publicemotes ? "<span><a href=\"javascript://\" id=\"sde-whynot\">Why isn&#8217;t <em>emote X</em> on the list?</a></span>" + (!superdAmn_GM ? "<br /><span><strong><a href=\"http://thezikes.org/emotecloud/\" id=\"sde-chrome\">Vote on and submit public emotes</a></strong></span>" : "") : "") + "<a href=\"javascript://\" id=\"sde-reload\">Reload</a></div></div>"
+				html  += "<ul class=\"browse\"><li>Loading...</li></ul><div class=\"bottom\">" + (SD.P.publicemotes ? "<span><a href=\"javascript://\" id=\"sde-whynot\">Why isn&#8217;t <em>emote X</em> on the list?</a></span>" + (!superdAmn_GM ? "<br /><span><strong><a href=\"https://thezikes.org/emotecloud/\" id=\"sde-chrome\">Vote on and submit public emotes</a></strong></span>" : "") : "") + "<a href=\"javascript://\" id=\"sde-reload\">Reload</a></div></div>"
 				p.innerHTML = html
 				// Elements onclick
 				/* Close button */	$x(".//a[@class='close']", p)[0].addEventListener("click", function(evt){ evt.preventDefault(); superdAmn.emotes.picker.hide() }, false)
@@ -1922,7 +1923,7 @@ var superdAmn = window.superdAmn = {
 									if(v.childNodes.length <= 0 || (v.childNodes.length > 0 && v.childNodes[0].innerHTML != iel.innerHTML && v.childNodes[0].tagName)){
 										if(iel.innerHTML != ""){
 											var server  = (Math.abs(crc32(iel.innerHTML)) % 3) + 1
-											v.innerHTML = "<span style=\"display:none\">" + iel.innerHTML + "</span><img src=\"http://fc0" + server + ".deviantart.com/" + iel.innerHTML + "\" />"
+											v.innerHTML = "<span style=\"display:none\">" + iel.innerHTML + "</span><img src=\"https://fc0" + server + ".deviantart.com/" + iel.innerHTML + "\" />"
 										} else {
 											v.innerHTML = "<span style=\"display:none\">" + iel.innerHTML + "</span>Image unavailable"
 										}
@@ -2092,7 +2093,7 @@ var superdAmn = window.superdAmn = {
 						}
 						superdAmn.postcallbacks[rid] = superdAmn.emotes.picker.addemcallback
 					} else {
-						alert("Sorry, please submit public emotes through the Emotecloud website at http://thezikes.org/emotecloud/add.php")
+						alert("Sorry, please submit public emotes through the Emotecloud website at https://thezikes.org/emotecloud/add.php")
 					}
 				}
 				if(clearit){
@@ -2197,11 +2198,11 @@ var superdAmn = window.superdAmn = {
 			formatdevid: function(str){
 				var r = ""
 				str   = superdAmn.trim(str)
-				if(str.substr(0,7) == "http://"){
+				if(str.substr(0,7) == "https://"){
 					var seg = str.substr(7).split("?")[0].replace(/\/$/, "").split("/")
-					if(str.substr(0,26) == "http://www.deviantart.com/" || str.substr(0,22) == "http://deviantart.com/"){
+					if(str.substr(0,26) == "https://www.deviantart.com/" || str.substr(0,22) == "https://deviantart.com/"){
 						r = seg[seg.length-1].replace(/[^0-9]+/g, "")
-					} else if(str.substr(0,15) == "http://fav.me/d" || str.substr(0,19) == "http://www.fav.me/d"){
+					} else if(str.substr(0,15) == "https://fav.me/d" || str.substr(0,19) == "https://www.fav.me/d"){
 						r = parseInt(seg[1].substr(1).match(/^[a-z0-9]+/)[0], 36)
 					} else {
 						var subseg = seg[seg.length-1].split("-")
@@ -2225,7 +2226,7 @@ var superdAmn = window.superdAmn = {
 						: ((typeof myvote == "number" || (typeof myvote == "string" && myvote.match(/^[0-9]+$/))) ? "<span class=\"voteb\" title=\"My vote\">" + (myvote > 0 ? "+" : "") + myvote.toString().replace("-", "&minus;")
 						+ " </span>" : "<span class=\"voteb\"></span>")) + votes + "</span> " : "")
 						+ ((img == "local" && !votes) ? "<a href=\"javascript://\" class=\"remove\" title=\"Remove this emote from your personal list\"></a>" : "")
-						+ "<a target=\"_blank\" href=\"http://www.deviantart.com/deviation/" + SD.he(devid) + "/\" class=\"viewdev\" title=\"View deviation\"></a>"
+						+ "<a target=\"_blank\" href=\"https://www.deviantart.com/deviation/" + SD.he(devid) + "/\" class=\"viewdev\" title=\"View deviation\"></a>"
 						+ "<a href=\"javascript://\" class=\"tofield\" title=\"Add this emote to input field\"></a></li>"
 			},
 			// GETLETTER: Gets the letter from supplied letter list element
@@ -2476,12 +2477,12 @@ var superdAmn = window.superdAmn = {
 			bold:			function(){ superdAmn.buttons.surroundtext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<b>", "</b>") },
 			italic:			function(){ superdAmn.buttons.surroundtext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<i>", "</i>") },
 			underline:		function(){ superdAmn.buttons.surroundtext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<u>", "</u>") },
-			link:			function(){ var url, t; if(url = prompt("Please enter the link URL", "http://")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, (t = prompt("Please enter link text")) ? ((t == "[link]") ? url : "<a href=\"" + url + "\">" + t + "</a>") : url) } },
-			thumb:			function(evt){ if(!evt.altKey){ var id; if(id = prompt("Please enter a deviation ID")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, ":thumb" + superdAmn.emotes.picker.formatdevid(id) + ":") } } else { var url; if(url = prompt("Please enter an image URL", "http://")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<img src=\"" + url + "\" />") } } },
+			link:			function(){ var url, t; if(url = prompt("Please enter the link URL", "https://")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, (t = prompt("Please enter link text")) ? ((t == "[link]") ? url : "<a href=\"" + url + "\">" + t + "</a>") : url) } },
+			thumb:			function(evt){ if(!evt.altKey){ var id; if(id = prompt("Please enter a deviation ID")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, ":thumb" + superdAmn.emotes.picker.formatdevid(id) + ":") } } else { var url; if(url = prompt("Please enter an image URL", "https://")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<img src=\"" + url + "\" />") } } },
 			superscript:	function(){ superdAmn.buttons.surroundtext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<sup>", "</sup>") },
 			subscript:		function(){ superdAmn.buttons.surroundtext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<sub>", "</sub>") },
 			code:			function(evt){ var tag = evt.altKey ? "bcode":"code";superdAmn.buttons.surroundtext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<" + tag + ">", "</" + tag + ">") },
-			website:		function(){ var url; if(url = prompt("Please enter a website URL", "http://")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<iframe src=\"" + url + "\" />") } }
+			website:		function(){ var url; if(url = prompt("Please enter a website URL", "https://")){ superdAmn.buttons.inserttext(dAmnChats[dAmnChatTab_active].channels.main.input.chatinput_el, "<iframe src=\"" + url + "\" />") } }
 		},
 		// AWAYMAXWIDTH: Calculate max width of the away box
 		awaymaxwidth: function(ns){
@@ -2627,7 +2628,7 @@ var superdAmn = window.superdAmn = {
 			+ "<input type=\"checkbox\" id=\"sdp-retroignore\"" + this.checked(SD.Pt.retroignore) + this.disabled(!SD.Pt.useignore) + " /> <label for=\"sdp-retroignore\">Retroactive ignore</label></p>"	
 			+ "<p><small>To see a list of people you ignore, type <strong>/ignore list</strong> in any chatroom. Users you have ignored are displayed as semi-transparent in a chatroom user list.</small></p>"
 			+ "<div class=\"gmbutton2town\"><a href=\"javascript://\" id=\"sdp-writeprefs\" class=\"gmbutton2 gmbutton2c\">Save preferences<b></b></a> "
-			+ "<a href=\"javascript://\" id=\"sdp-cancel\" class=\"gmbutton2 gmbutton2s\">Cancel<b></b></a> <a href=\"javascript://\" id=\"sdp-reset\" class=\"gmbutton2 gmbutton2s\">Reset<b></b></a> <small style=\"float:right\"><a target=\"_blank\" href=\"http://superdamners.deviantart.com/gallery/?24276365\" class=\"gmbutton2 gmbutton2s\">Read the SuperdAmn Manual<b></b></a></small></div></div></div></div>"
+			+ "<a href=\"javascript://\" id=\"sdp-cancel\" class=\"gmbutton2 gmbutton2s\">Cancel<b></b></a> <a href=\"javascript://\" id=\"sdp-reset\" class=\"gmbutton2 gmbutton2s\">Reset<b></b></a> <small style=\"float:right\"><a target=\"_blank\" href=\"https://superdamners.deviantart.com/gallery/?24276365\" class=\"gmbutton2 gmbutton2s\">Read the SuperdAmn Manual<b></b></a></small></div></div></div></div>"
 			+ "<i class=\"gr3\"></i><i class=\"gr2\"></i><i class=\"gr1\"></i></div></div>"
 			
 			// Form events
@@ -3114,9 +3115,9 @@ if(superdAmn_GM){
 	var superdAmnlocal = {
 		SD: null,
 		domains:  ["temple.24bps.com", "www.thezikes.org", "thezikes.org"], // Approved domains to send requests to
-		oc:       function(a){ var o = {}; for(var i=0;i<a.length;i++){ o[a[i]] = ""; } return o }, // Converting an array to an object literal; from http://snook.ca/archives/javascript/testing_for_a_v/
+		oc:       function(a){ var o = {}; for(var i=0;i<a.length;i++){ o[a[i]] = ""; } return o }, // Converting an array to an object literal; from https://snook.ca/archives/javascript/testing_for_a_v/
 		ol:       function(obj){ var l = 0; for(var p in obj){ if(obj.hasOwnProperty(p)){ l++ } } return l }, // Object length
-		parseurl: function(str, component){ var o = { strictMode: false, key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"], q: { name: "queryKey", parser: /(?:^|&)([^&=]*)=?([^&]*)/g }, parser: { strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*):?([^:@]*))?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/, loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/\/?)?((?:(([^:@]*):?([^:@]*))?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/ } }; var m = o.parser[o.strictMode ? "strict" : "loose"].exec(str), uri = {}, i = 14; while(i--){ uri[o.key[i]] = m[i] || "" } switch(component){ case "PHP_URL_SCHEME": return uri.protocol; case "PHP_URL_HOST": return uri.host; case "PHP_URL_PORT": return uri.port; case "PHP_URL_USER": return uri.user; case "PHP_URL_PASS": return uri.password; case "PHP_URL_PATH": return uri.path; case "PHP_URL_QUERY": return uri.query; case "PHP_URL_FRAGMENT": return uri.anchor; default: var retArr = {}; if(uri.protocol !== ""){ retArr.scheme = uri.protocol } if(uri.host !== ""){ retArr.host = uri.host } if(uri.port !== ""){ retArr.port = uri.port } if(uri.user !== ""){ retArr.user = uri.user } if(uri.password !== ""){ retArr.pass = uri.password } if(uri.path !== ""){ retArr.path = uri.path } if(uri.query !== ""){ retArr.query = uri.query } if(uri.anchor !== ""){ retArr.fragment = uri.anchor } return retArr } }, // Kudos to PHP-JS; http://phpjs.org/functions/parse_url
+		parseurl: function(str, component){ var o = { strictMode: false, key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"], q: { name: "queryKey", parser: /(?:^|&)([^&=]*)=?([^&]*)/g }, parser: { strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*):?([^:@]*))?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/, loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/\/?)?((?:(([^:@]*):?([^:@]*))?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/ } }; var m = o.parser[o.strictMode ? "strict" : "loose"].exec(str), uri = {}, i = 14; while(i--){ uri[o.key[i]] = m[i] || "" } switch(component){ case "PHP_URL_SCHEME": return uri.protocol; case "PHP_URL_HOST": return uri.host; case "PHP_URL_PORT": return uri.port; case "PHP_URL_USER": return uri.user; case "PHP_URL_PASS": return uri.password; case "PHP_URL_PATH": return uri.path; case "PHP_URL_QUERY": return uri.query; case "PHP_URL_FRAGMENT": return uri.anchor; default: var retArr = {}; if(uri.protocol !== ""){ retArr.scheme = uri.protocol } if(uri.host !== ""){ retArr.host = uri.host } if(uri.port !== ""){ retArr.port = uri.port } if(uri.user !== ""){ retArr.user = uri.user } if(uri.password !== ""){ retArr.pass = uri.password } if(uri.path !== ""){ retArr.path = uri.path } if(uri.query !== ""){ retArr.query = uri.query } if(uri.anchor !== ""){ retArr.fragment = uri.anchor } return retArr } }, // Kudos to PHP-JS; https://phpjs.org/functions/parse_url
 		// INIT: Initializes our superdAmn local objects and lets the user know that SD is running
 		init: function(){
 			GM_log("Oh hai")
@@ -3208,7 +3209,7 @@ if(!document.getElementById("MiddleMan")){
     
     
 		// The below is highly compressed; to get the full editable MiddleMan, please go to
-		// http://sumopiggy.24bps.com/damn/middleman/middleman.js and paste that code in instead of this
+		// https://sumopiggy.24bps.com/damn/middleman/middleman.js and paste that code in instead of this
 		(function(){var d=window.MiddleMan={loaded:false,debug:false,_title:{},_topic:{},init:function(){this.updateMethods();this.loaded=true;this.appendInlineStyles(".dockrocker_MM .popup2_MM{ display:none; width: auto; height: auto; right: 0px; } .dockrocker_MM:hover .popup2_MM{ display:block; }.dockrocker_MM .popup2_MM .f{ text-indent: 0px; padding: 2px 18px; }.dockrocker_MM .popup2_MM .f:hover{ cursor: pointer; background-color: #AFC81C; color: #2D3733 !important; }")},extend:function(a,b){a=a||{};b=
 		b||this;for(var c in a)b[c]=a[c];return b},errorMsg:function(a,b,c){this.debug&&alert("MiddleMan Error occurred: "+b+"("+uneval(c)+")\n"+a)},insertBefore:function(a,b){(b=typeof b=="string"?document.getElementById(b):b)&&b.parentNode.insertBefore(a,b)},objForEach:function(a,b,c){for(var e in a)typeof a[e]=="object"&&b(a[e],e,c)},each:function(a,b,c){var e,f=0,g=a.length;if(c)if(g==undefined)for(e in a){if(b.apply(a[e],c)===false)break}else for(;f<g;){if(b.apply(a[f++],c)===false)break}else if(g==
 		undefined)for(e in a){if(b.call(a[e],e,a[e])===false)break}else for(c=a[0];f<g&&b.call(c,f,c)!==false;c=a[++f]);return a},serialize:function(a){var b=[];if(a.constructor!=Array)for(var c in a)b.push(encodeURIComponent(c)+"="+encodeURIComponent(a[c]));return b.join("&").replace(/%20/g,"+")},appendScript:function(a,b){var c=document.createElement("script");c.id=a;c.src=b;document.getElementsByTagName("head")[0].appendChild(c);return c},appendStylesheet:function(a,b){var c=document.createElement("link");
@@ -3250,7 +3251,7 @@ if(!document.getElementById("MiddleMan")){
 		
 	var	MMScript = document.createElement("script")
 	MMScript.id  = "MiddleMan"
-	//MMScript.src = "http://sumopiggy.24bps.com/damn/middleman/middleman.js?" + (new Date()).getDate()
+	//MMScript.src = "https://sumopiggy.24bps.com/damn/middleman/middleman.js?" + (new Date()).getDate()
 	MMScript.appendChild(document.createTextNode(mm))
 	document.getElementsByTagName("head")[0].appendChild(MMScript)
 }
@@ -3276,13 +3277,8 @@ sdel.appendChild(document.createTextNode(sd))
 sfel = document.createElement("script"); sfel.id = "superdamnfaq"
 sfel.src = "https://cdn.rawgit.com/graulund/superdAmn/master/faqs.js?" + (new Date()).getDate()
 
-// Creating SuperdAmn IBL element
-siel = document.createElement("script"); siel.id = "superdamnibl"
-siel.src = "http://temple.24bps.com/superdamn/ignore-blacklist.js?" + (new Date()).getDate()
-
 // Adding both scripts to the HTML and starting up superdAmnlocal
 document.getElementsByTagName("head")[0].appendChild(sdpl)
 document.getElementsByTagName("head")[0].appendChild(sfel)
-document.getElementsByTagName("head")[0].appendChild(siel)
 document.getElementsByTagName("head")[0].appendChild(sdel)
 if(superdAmn_GM){ superdAmnlocal.init() }
