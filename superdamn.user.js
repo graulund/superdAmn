@@ -2529,18 +2529,7 @@ var superdAmn = window.superdAmn = {
 		// LOAD: Loads stored preferences, or saves the default if none found
 		load: function(){
 			var SD = superdAmn
-			if(window.superdAmn_GM){
-				if(window.superdAmnLoadedPrefs){
-					try {
-						SD.P = JSON.parse(JSON.stringify(superdAmnLoadedPrefs))
-					} catch(e){
-						window.setTimeout(function(){ var noes = "Oh noes! Could not read your preferences! We're now back to standard preferences and no personal emotes."; if(window.dAmnChats){ superdAmn.error("superdAmn", noes) } else { alert(noes) } }, 1000)
-					}
-				} else {
-					this.save() // Saving default prefs
-					return SD.P
-				}
-			} else if(window.localStorage){
+			if (window.localStorage){
 				if(window.localStorage.superdAmn_preferences){
 					try {
 						SD.P = JSON.parse(window.localStorage.superdAmn_preferences)
@@ -2555,14 +2544,10 @@ var superdAmn = window.superdAmn = {
 				throw new TypeError("SuperdAmn save data is not saved anywhere understandable. :(")
 			}
 		},
-		// SAVE: Passes the preferences to superdAmnlocal to be sent to GM_setValue
+		// SAVE: Passes the preferences to superdAmnlocal
 		save: function(){
 			var SD = superdAmn
-			if(window.superdAmn_GM){
-				SD.postrequests["save-" + SD.time()] = { url: "save", data: SD.P }
-			} else {
-				window.localStorage.superdAmn_preferences = JSON.stringify(SD.P)
-			}
+            window.localStorage.superdAmn_preferences = JSON.stringify(SD.P)
 		},
 		// HIDE: Hides the preference panel
 		hide: function(){
@@ -3166,9 +3151,7 @@ if(superdAmn_GM){
 		// LOADPREFS: Loads the preferences as JSON from a GM value. Stores and returns. If it's not present, it saves the default, which is already loaded
 		loadprefs: function(){
 			if(this.SD){
-				if(GM_getValue){
-					x = GM_getValue("preferences")
-				} else if(localStorage){
+				if(localStorage){
 					x = localStorage.superdAmn_preferences
 				} else {
 					throw new TypeError("SuperdAmn save data is not saved anywhere understandable. :(")
@@ -3184,9 +3167,7 @@ if(superdAmn_GM){
 		},
 		// SAVEPREFS: Saves the supplied SD preferences in a local GM value
 		saveprefs: function(id, data){
-			if(GM_setValue){
-				GM_setValue("preferences", JSON.stringify(data))
-			} else if(localStorage){
+			if(localStorage){
 				localStorage.superdAmn_preferences = JSON.stringify(data)
 			} else {
 				throw new TypeError("SuperdAmn save data cannot be saved anywhere understandable. :(")
@@ -3262,9 +3243,6 @@ function freeFunctionString(str){
 
 // Creating SuperdAmn prefs container script element
 sdlp = ""
-if(superdAmn_GM && (x = GM_getValue("preferences"))){
-	try { sdlp += "superdAmnLoadedPrefs = " + JSON.stringify(JSON.parse(x)) } catch(e){}
-}
 sdpl = document.createElement("script"); sdpl.id = "superdamnloadedprefs"
 sdpl.appendChild(document.createTextNode(sdlp))
 
