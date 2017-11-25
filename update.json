@@ -1,7 +1,7 @@
 {
-	"v": "1.0.11",
+	"v": "1.0.12",
 	"d": 1502442622,
-	"u": "1.0.11: DeviantArt introduced HTTPS, breaking emotes and other features, they now work.",
+	"u": "1.0.12: This version works with the Greasemonkey 4.0! Yay!",
 	"a": [
 	]
 }
