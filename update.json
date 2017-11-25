@@ -1,7 +1,7 @@
 {
-	"v": "1.0.8",
-	"d": 1429229926,
-	"u": "1.0.8: Fixing how SuperdAmn used to occasionally not load when entering the chats.",
+	"v": "1.0.11",
+	"d": 1502442622,
+	"u": "1.0.11: DeviantArt introduced HTTPS, breaking emotes and other features, they now work.",
 	"a": [
 	]
 }
