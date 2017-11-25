@@ -6,7 +6,7 @@
 // @version        1.0.8
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
-// @grant GM_xmlhttpRequest
+// @grant GM_xmlHttpRequest
 // ==/UserScript==
 
 // LAST UPDATED: 2015-02-03
@@ -3132,8 +3132,8 @@ if(superdAmn_GM){
 		// POST: Runs a POST request with the supplied data and the SD callback function
 		post: function(id, url, data){
 			if(this.SD && this.checkdomain(url)){
-				if(GM_xmlhttpRequest){
-					GM_xmlhttpRequest({
+				if(GM_xmlHttpRequest){
+					GM_xmlHttpRequest({
 						method:		"POST",
 						url:		url,
 						data:		data,
