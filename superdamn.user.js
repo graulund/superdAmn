@@ -7,8 +7,6 @@
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
-// @grant GM_getValue
-// @grant GM_setValue
 // @grant GM_log
 // ==/UserScript==
 
