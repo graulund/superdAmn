@@ -7,7 +7,6 @@
 // @include        http://chat.deviantart.com/chat/*
 // @include        http://chat.deviantart.lan/chat/*
 // @grant GM_xmlhttpRequest
-// @grant GM_log
 // ==/UserScript==
 
 // LAST UPDATED: 2015-02-03
@@ -3104,7 +3103,7 @@ if(superdAmn_GM){
 		parseurl: function(str, component){ var o = { strictMode: false, key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"], q: { name: "queryKey", parser: /(?:^|&)([^&=]*)=?([^&]*)/g }, parser: { strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*):?([^:@]*))?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/, loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/\/?)?((?:(([^:@]*):?([^:@]*))?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/ } }; var m = o.parser[o.strictMode ? "strict" : "loose"].exec(str), uri = {}, i = 14; while(i--){ uri[o.key[i]] = m[i] || "" } switch(component){ case "PHP_URL_SCHEME": return uri.protocol; case "PHP_URL_HOST": return uri.host; case "PHP_URL_PORT": return uri.port; case "PHP_URL_USER": return uri.user; case "PHP_URL_PASS": return uri.password; case "PHP_URL_PATH": return uri.path; case "PHP_URL_QUERY": return uri.query; case "PHP_URL_FRAGMENT": return uri.anchor; default: var retArr = {}; if(uri.protocol !== ""){ retArr.scheme = uri.protocol } if(uri.host !== ""){ retArr.host = uri.host } if(uri.port !== ""){ retArr.port = uri.port } if(uri.user !== ""){ retArr.user = uri.user } if(uri.password !== ""){ retArr.pass = uri.password } if(uri.path !== ""){ retArr.path = uri.path } if(uri.query !== ""){ retArr.query = uri.query } if(uri.anchor !== ""){ retArr.fragment = uri.anchor } return retArr } }, // Kudos to PHP-JS; http://phpjs.org/functions/parse_url
 		// INIT: Initializes our superdAmn local objects and lets the user know that SD is running
 		init: function(){
-			GM_log("Oh hai")
+			console.log("Oh hai")
 			this.getSD()
 		},
 		// KONTINUE: Starts listening for requests once we've gotten a reference to SD
@@ -3113,7 +3112,7 @@ if(superdAmn_GM){
 		},
 		// GETSD: Searches for the SD object and puts a reference to it in this.SD once it's found
 		getSD: function(){
-			if(unsafeWindow.superdAmn){ GM_log("Got it"); this.SD = unsafeWindow.superdAmn; this.kontinue() }
+			if(unsafeWindow.superdAmn){ console.log("Got it"); this.SD = unsafeWindow.superdAmn; this.kontinue() }
 			else { setTimeout(function(){ superdAmnlocal.getSD() }, 500) }
 		},
 		// CHECKREQUESTS: Looks for AJAX POST requests from SD and sends them off if there is any
